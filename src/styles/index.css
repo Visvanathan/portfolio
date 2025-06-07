@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "primereact/resources/themes/lara-light-cyan/theme.css" layer(primereact);
+@import 'primeicons/primeicons.css';
+
+
+@theme {
+  --font-display: "Oswald", "sans-serif";
+  --font-display--font-feature-settings: "cv02", "cv03", "cv04", "cv11"; 
+  --font-display--font-variation-settings: "opsz" 32;   
+  --color-laravel: #f53003;
+  --color-background: #222222
+  }
+
+.linkedin-button .pi.pi-linkedin {
+  color: #0077B5;font-size: 1.5rem;
+}
