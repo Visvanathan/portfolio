@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function About() {
   return (
     <section className="py-16 px-6 max-w-7xl mx-auto text-indigo">

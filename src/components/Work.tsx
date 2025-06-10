@@ -3,7 +3,6 @@ import workData from '../data/work.json';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
-import { Image } from 'primereact/image';
 import { Galleria } from 'primereact/galleria';
 
 interface WorkItem {

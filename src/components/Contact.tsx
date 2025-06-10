@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Contact() {
   return (
     <section className="py-16 px-6 max-w-4xl mx-auto text-center">

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import MultiTypewriter from '../common/MultiTypewriter';
-import { Button } from 'primereact/button';
 import picture from '../assets/vishwa.jpeg';
 
-// Icons for dark/light toggle
+
 import { FiSun, FiMoon } from 'react-icons/fi';
 
-export default function Hero({ workRef }: { workRef: React.RefObject<HTMLDivElement> }) {
+export default function Hero({ workRef }: { workRef: React.RefObject<HTMLDivElement | null> }) {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {

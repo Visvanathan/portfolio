@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Timeline } from 'primereact/timeline';
 import experiencesData from '../data/experience.json'
 
