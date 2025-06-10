@@ -3,18 +3,18 @@
     "title": "Senior Software Engineer",
     "company": "Keylink Innovative Technology , Hendersonville, United States, Remote",
     "date": "Sep 2014 - Oct 2024 | 10 Years 1 Month | Full time job",
-    "details": "<ul class='list-disc list-inside space-y-1'><li>Developed and maintained Laravel-based applications, implementing RESTful APIs, authentication systems, and efficient database structures.</li><li>Optimized application performance using caching strategies and query optimization.</li><li>Implemented secure medical-related applications, ensuring compliance with industry standards (HIPAA).</li><li>Developed secure payment solutions and implemented advanced booking logic.</li><li>Enhanced site performance and improved search functionalities.</li><li>Partnered with cross-disciplinary teams for seamless application delivery.</li><ul>"
+    "details": "Built secure Laravel apps with REST APIs, medical compliance (HIPAA), payment systems, and booking logic. Optimized performance, improved search, and collaborated with teams for reliable delivery."
   },
   {
     "title": "Lead Software Engineer",
     "company": "Louder Design, North Richland Hills, United States, Remote",
     "date": "May 2018 - Present (Part-Time, 2 Hours/Day)",
-    "details": "<ul class='list-disc list-inside space-y-1'><li>Led and managed a team of developers on multiple projects, ensuring timely delivery and adherence to best coding practices.</li><li>Developed complex web applications using Laravel, incorporating RESTful APIs, custom middleware, and advanced data handling.</li><li>Implemented and customized Magento 2 solutions, developing custom extensions, optimizing performance, and integrating third-party services for enhanced eCommerce capabilities.</li><li>Enhanced WordPress projects by creating custom themes and plugins, ensuring security, responsiveness, and user-focused design.</li><li>Mentored junior developers and fostered a collaborative team culture, driving project success through effective code reviews and technical guidance.</li><li>Improved system performance and scalability by adopting efficient coding standards, refactoring legacy codebases, and conducting regular code optimization.</li><li>Collaborated with cross-functional teams, including designers and product managers, to translate business requirements into technical solutions.</li></ul>"
+    "details": "Led Laravel and Magento 2 projects. Customized WordPress, improved scalability, mentored juniors, and ensured timely delivery with best practices. Collaborated with design and product teams remotely."
   },
   {
     "title": "Associate Software Engineer",
     "company": "Meggnotec Technologies Private Limited, Chennai, On-Site",
     "date": "Mar 2012 - Aug 2014 | 2 Years 5 Months | Full time job",
-    "details": "<ul class='list-disc list-inside space-y-1'><li>Developed and maintained custom Magento 1 eCommerce solutions, including extension integration, custom module creation, and performance optimization.</li><li>Enhanced WordPress sites by designing custom themes and building/optimizing plugins to extend functionality.</li><li>Worked closely with design/product teams to implement client requirements and ensure smooth site performance.</li><li>Conducted site audits to troubleshoot issues and applied security patches to keep platforms up-to-date.</li><li>Integrated third-party APIs and implemented SEO best practices to improve web traffic and user engagement.</li></ul>"
+    "details": "Built Magento  and WordPress solutions with custom themes, modules, and plugins. Ensured performance, integrated APIs, improved SEO, and worked closely with design teams for smooth delivery."
   }  
 ]

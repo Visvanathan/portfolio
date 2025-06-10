@@ -17,14 +17,14 @@ export default function Hero() {
   }, [])
   return (
     <section className="py-16 px-6 max-w-7xl mx-auto" >
-        <h2 className="text-center text-3xl font-semibold mb-4">A summary of My Resume</h2>
+        <h2 className="mb-10 text-5xl text-center md:text-6xl lg:text-[80px] text-indigo lg:tracking-[-4px] header-leading">A summary of My Resume</h2>
         <Timeline align="alternate"className="customized-timeline" value={experiences} content={(experience) => (
-            <div className='text-left'>
-            <h3 className="font-semibold text-gray-800">{experience.title}</h3>
-            <p className="text-sm text-gray-600">{experience.company}</p>
-            <p className="text-xs text-gray-500 mt-1">{experience.date}</p>
+            <div>
+            <h3 className="font-semibold ">{experience.title}</h3>
+            <p className="text-sm">{experience.company}</p>
+            <p className="text-xs mt-1">{experience.date}</p>
             <div
-                className="text-sm text-gray-700 mt-2"
+                className="text-sm mt-2"
                 dangerouslySetInnerHTML={{ __html: experience.details }}
             ></div>
             </div>

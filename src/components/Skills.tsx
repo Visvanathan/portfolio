@@ -19,18 +19,12 @@ export default function Skills() {
   }, [])
 
   return (
-    <section className="py-16 px-6 max-w-7xl mx-auto">
-      <h2 className="text-center text-3xl font-semibold mb-6">My Skills</h2>
+    <section className="max-w-8xl mx-15 p-10 bg-indigo rounded-4xl">
+      <h2 className="mb-10 text-5xl text-center md:text-6xl lg:text-[80px]  lg:tracking-[-4px] header-leading text-white">My Skills</h2>
        <Tabs>
-        <TabList className="flex flex-wrap gap-2 justify-center sm:justify-center sm:overflow-x-auto sm:whitespace-nowrap mb-6 px-2">
+        <TabList className="flex flex-wrap gap-2 justify-center sm:justify-center sm:overflow-x-auto sm:whitespace-nowrap mb-10 px-2 font-BertholdScript">
           {categories.map((cat, i) => (
-            <Tab
-              key={i}
-              className="px-4 py-2 cursor-pointer rounded-md border text-gray-700 "
-              selectedClassName="bg-blue-500 text-white"
-            >
-              {cat}
-            </Tab>
+            <Tab key={i} className="px-4 py-2 cursor-pointer border-6 border-double border-cream  shadow-2xl rounded-lg text-cream" selectedClassName="bg-cream text-indigo">{cat}</Tab>
           ))}
         </TabList>
         {categories.map((category, i) => (
@@ -41,22 +35,20 @@ export default function Skills() {
                 .map((skill, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col items-center p-4 bg-white shadow rounded-xl"
+                    className="flex flex-col items-center p-4 "
                   >
                     <div className="w-24 h-24 mb-3">
                       <CircularProgressbar
                         value={skill.level}
                         text={`${skill.level}%`}
                         styles={buildStyles({
-                          pathColor: '#3b82f6',
-                          textColor: '#1f2937',
-                          trailColor: '#d1d5db'
+                          pathColor: '#ffffff',
+                          textColor: '#ffffff',
+                          trailColor: '#2C395B'
                         })}
                       />
                     </div>
-                    <span className="font-medium text-gray-800 text-center">
-                      {skill.name}
-                    </span>
+                    <span className="font-medium text-white text-center">{skill.name}</span>
                   </div>
                 ))}
             </div>

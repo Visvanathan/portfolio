@@ -2,15 +2,20 @@ import React from 'react'
 
 export default function About() {
   return (
-    <section className="py-16 px-6 max-w-7xl mx-auto">
-      <h2 className="text-center text-3xl font-semibold mb-4">Know Me More</h2>
-      <div className="flex flex-col-reverse md:flex-row gap-4">
-      <div className="w-1/1 p-4 col-span-3">
-        <h2>Hi, I'm <span>Visvanathan D</span></h2>
-        <p>I'm a designer &amp; developer with a passion for web design. I enjoy developing simple, clean and slick websites that provide real value to the end user. Thousands of clients have procured exceptional results while working with me. Delivering work within time and budget which meets client’s requirements is our moto.</p>
+    <section className="py-16 px-6 max-w-7xl mx-auto text-indigo">
+      <h2 className="mb-10 text-5xl text-center md:text-6xl lg:text-[80px] text-indigo lg:tracking-[-4px] header-leading font-berthold">About Me</h2>
+      <div className="flex flex-col-reverse md:flex-row gap-1">
+      <div className="flex-2">
+        <h2 className='text-3xl  mb-2'>Hi, I'm <strong>Visvanathan D</strong></h2>
+        <p>I am an experienced Laravel Developer with over 7 years of deep Laravel expertise and 12+ years of overall PHP development experience, focused on building scalable, secure, and high-performance web applications. Throughout my career, I’ve solved complex technical problems for businesses in various domains—from healthcare and eCommerce to logistics and booking systems—by applying modern backend development principles, optimized architecture, and clean coding standards.</p>
       </div>
-      <div className="md:w-1/3 p-4">
-        <div><div><span>12+</span></div><h3>Years of <span>Experiance</span></h3></div>
+      <div className="flex-1 text-center flex flex-col items-center ">
+        <div className="bg-indigo rounded-full w-[130px] h-[130px] flex items-center justify-center ">
+          <span className="text-cream font-medium text-9xl ">12</span>
+        </div>
+        <h3 className="text-reddish-brown text-3xl mt-4">
+          Years of <strong>Experience</strong>
+        </h3>
       </div>
     </div>
     </section>
