@@ -2,98 +2,61 @@
   {
     "title": "LB Blockhead",
     "image": "/work/lbblockhead/login.png",
-    "gallery" : [
-        "/work/lbblockhead/login.png",
-        "/work/lbblockhead/login.png",
-        "/work/lbblockhead/login.png",
-        "/work/lbblockhead/login.png",
-        "/work/lbblockhead/login.png",
-        "/work/lbblockhead/login.png"
-    ],
+    "image_dir": "/work/lbblockhead/",
     "link": "https://www.lbblockhead.com/login"
   },
   {
     "title": "Genuine Smith Field Virginia",
     "image": "/work/genuinesmithfieldva/login.png",
-    "gallery" : [
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/dashboard.png",
-        "/work/genuinesmithfieldva/create-user.png",
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/login.png",
-        "/work/genuinesmithfieldva/login.png"
-    ],
+    "image_dir": "/work/genuinesmithfieldva/",
     "link": "https://sandbox.genuinesmithfieldva.com/maestro/login"
   },
   {
     "title": "Solokrafts",
-    "gallery" : [
-        "/work/lbblockhead/login.png"
-    ],
-    "image": "/work/lbblockhead/login.png",
+    "image_dir": "/work/solokrafts/",
+    "image": "/work/solokrafts/home.png",
     "link": "https://www.solokrafts.in"
   },
   {
     "title": "Hospibuy",
     "image": "/work/lbblockhead/login.png",
-    "gallery" : [
-        "/work/lbblockhead/login.png"
-    ],
+    "image_dir": "/work/lbblockhead/",
     "link": "https://hospibuy.com"
   },
   {
     "title": "Pioneercoach",
-    "image": "/work/lbblockhead/login.png",
-    "gallery" : [
-        "/work/lbblockhead/login.png"
-    ],
+    "image": "/work/pioneercoach/home.png",
+    "image_dir": "/work/pioneercoach/",
     "link": "https://pioneercoach.com/"
   },
   {
     "title": "My Connected Caregiver",
     "image": "/work/lbblockhead/login.png",
-    "gallery" : [
-        "/work/lbblockhead/login.png"
-    ],
+    "image_dir": "/work/lbblockhead/",
     "link": "https://myconnectedcaregiver.com"
   },
   {
     "title": "Tapes and Technical Solutions",
-    "image": "/work/lbblockhead/login.png",
-    "gallery" : [
-        "/work/lbblockhead/login.png"
-    ],
+    "image": "/work/tapesandtech/home.png",
+    "image_dir": "/work/tapesandtech/",
     "link": "https://tapesandtech.com/"
   },
   {
     "title": "Birdie Bros",
     "image": "/work/lbblockhead/login.png",
-    "gallery" : [
-        "/work/lbblockhead/login.png"
-    ],
+    "image_dir": "/work/lbblockhead/",
     "link": "https://birdiebros.com"
   },
   {
     "title": "Visit Waynesbro Virginia",
     "image": "/work/lbblockhead/login.png",
-    "gallery" : [
-        "/work/lbblockhead/login.png"
-    ],
+    "image_dir": "/work/lbblockhead/",
     "link": "https://www.visitwaynesboro.com"
   },
   {
     "title": "Visit Knox County Ohio",
     "image": "/work/lbblockhead/login.png",
-    "gallery" : [
-        "/work/lbblockhead/login.png"
-    ],
+    "image_dir": "/work/lbblockhead/",
     "link": "https://visitknoxohio.org/"
   }
 ]

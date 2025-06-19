@@ -1,6 +1,5 @@
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import workData from '../data/work.json';
-import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Galleria } from 'primereact/galleria';
@@ -8,54 +7,89 @@ import { Galleria } from 'primereact/galleria';
 interface WorkItem {
   title: string;
   image: string;
-  gallery: string[];
+  image_dir?: string;
+  gallery?: string[];
   link: string;
 }
 
+// Load all images from public/work/... eagerly
+const allWorkImages = import.meta.glob('/public/work/**/*.{png,jpg,jpeg,webp,svg}', {
+  as: 'url',
+  eager: true,
+});
+
 export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
   const [works, setWorks] = useState<WorkItem[]>([]);
-  const [visible, setVisible] = useState(false);
-  const [selectedWork, setSelectedWork] = useState<WorkItem | null>(null);
+  const [galleryItems, setGalleryItems] = useState<any[]>([]);
+  const galleriaRef = useRef<any>(null);
 
+ 
   useEffect(() => {
     setWorks(workData);
   }, []);
 
+  const handleViewProject = (work: WorkItem) => {
+    if (!work.image_dir) return;
+
+    const folderPath = '/public' + work.image_dir;
+
+    const matchedImages = Object.entries(allWorkImages)
+      .filter(([path]) => path.startsWith(folderPath))
+      .map(([_, url]) => url as string)
+      .sort();
+
+    const formattedItems = matchedImages.map((img) => ({
+      itemImageSrc: img,
+      thumbnailImageSrc: img,
+      alt: work.title,
+    }));
+
+    setGalleryItems(formattedItems);
+
+    // Wait for galleryItems to update, then call .show()
+    setTimeout(() => {
+      galleriaRef.current?.show();
+    }, 100);
+  };
+
   const itemTemplate = (item: any) => (
-    <img src={item.itemImageSrc} alt={item.alt} className="w-full" />
+    <img src={item.itemImageSrc} alt={item.alt}  className=" object-contain object-top h-screen w-auto max-w-dvh"  />
   );
 
   const thumbnailTemplate = (item: any) => (
-    <img src={item.thumbnailImageSrc} alt={item.alt} style={{ width: '100px', display: 'block' }} />
+    <img src={item.thumbnailImageSrc} alt={item.alt} className="w-20 h-20 object-cover object-top-left" />
   );
 
   return (
-    <section ref={ref} className="max-w-7xl mx-auto p-10 ">
-      <h2 className="mb-10 text-5xl text-center md:text-6xl lg:text-[80px] text-indigo lg:tracking-[-4px] header-leading">Some of my most recent projects</h2>
+    <section ref={ref} className="max-w-7xl mx-auto p-10">
+      <h2 className="mb-10 text-5xl text-center md:text-6xl lg:text-[80px] text-indigo lg:tracking-[-4px] header-leading">
+        Some of my most recent projects
+      </h2>
 
       <div className="grid md:grid-cols-3 gap-6">
         {works.map((work, idx) => (
-          <div key={idx} className="flex justify-center">
+          <div key={idx} className="flex flex-col items-center">
             <Card
-              className=''
-              title={<a href={work.link} target="_blank" rel="noopener noreferrer" className='my-5 text-indigo'>{work.title}</a>}
-              header={<img src={work.image} alt={work.title} className="w-full rounded-2xl"/>}
+              className="w-full"
+              title={
+                <a href={work.link} target="_blank" rel="noopener noreferrer" className="my-5 text-indigo">
+                  {work.title}
+                </a>
+              }
+              header={<img src={work.image} alt={work.title} className="w-full h-60 object-cover object-top" />}
               footer={
                 <div className="flex justify-center w-full">
                   <Button
                     className="md:w-1/2 sm:w-full bg-indigo p-3 text-white cursor-pointer"
                     label="View Project"
-                    onClick={() => {
-                      setSelectedWork(work);
-                      setVisible(true);
-                    }}
+                    onClick={() => handleViewProject(work)}
                     unstyled
                   />
                 </div>
               }
               role="region"
             >
-              <p className='text-indigo'>
+              <p className="text-indigo">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae...
               </p>
             </Card>
@@ -63,31 +97,19 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
         ))}
       </div>
 
-      <Dialog header={selectedWork?.title || ''} visible={visible} onHide={() => setVisible(false)} style={{ width: '80vw' }}>
-        {selectedWork && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div>
-              <Galleria
-                value={selectedWork.gallery.map(img => ({
-                  itemImageSrc: img,
-                  thumbnailImageSrc: img,
-                  alt: selectedWork.title,
-                }))}
-                item={itemTemplate}
-                thumbnail={thumbnailTemplate}
-                numVisible={5}
-                style={{ maxWidth: '100%',color:'#2C395B'  }}
-                showThumbnails
-                showIndicators
-              />
-            </div>
-            <div>
-              <p className='text-indigo'>More details about the project can go here, like description, technologies, features, etc. More details about the project can go here, like description, technologies, features, etc. More details about the project can go here, like description, technologies, features, etc. More details about the project can go here, like description, technologies, features, etc. More details about the project can go here, like description, technologies, features, etc. More details about the project can go here, like description, technologies, features, etc.</p>
-              <a href={selectedWork.link} className="mt-4 inline-block text-indigo underline" target="_blank" rel="noopener noreferrer">Visit Site</a>
-            </div>
-          </div>
-        )}
-      </Dialog>
+      <Galleria
+        ref={galleriaRef}
+        value={galleryItems}
+        numVisible={5}
+        fullScreen
+        circular 
+        transitionInterval={3000}
+        autoPlay 
+        showItemNavigators
+        showThumbnails={false}
+        item={itemTemplate}
+        thumbnail={thumbnailTemplate}
+      />
     </section>
   );
 });
