@@ -56,9 +56,9 @@ export default function Hero({ workRef }: { workRef: React.RefObject<HTMLDivElem
       </button>
      
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-16 items-center w-full max-w-7xl">
-        <div className="text-left lg:order-1 order-2">
-          <h5 className="text-3xl text-indigo ">Hello There!</h5>
-          <h1 className="uppercase font-bold text-4xl py-3 text-indigo">
+        <div className="text-center sm:text-center md:text-left lg:order-1 order-2">
+          <h5 className="text-3xl ">Hello There!</h5>
+          <h1 className="uppercase font-bold text-4xl py-3">
             I'm{' '}
             <MultiTypewriter
               texts={['Visvanathan D', 'a Full-Stack Developer', 'a Laravel Developer','a TALL stack Developer']}
@@ -67,26 +67,29 @@ export default function Hero({ workRef }: { workRef: React.RefObject<HTMLDivElem
               className="text-4xl"
             />
           </h1>
-          <p className="text-indigo mb-10">
+          <p className="mb-10">
             I am a dedicated software developer with over 12 years of experience in web application development, including 7 years specializing in Laravel...
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-center">
-            <button onClick={scrollToWork} className='px-8 py-3  border-indigo border-2 text-indigo cursor-pointer rounded-2xl'>View My Works</button>
-            <a href="https://www.linkedin.com/in/visvanathan-d/" target="_blank" rel="noopener noreferrer" className="text-4xl text-indigo">
+            <button onClick={scrollToWork} className='px-8 py-3  border-indigo border-2 cursor-pointer rounded-2xl dark:border-dark-indigo'>View My Works</button>
+            <a href="https://www.linkedin.com/in/visvanathan-d/" target="_blank" rel="noopener noreferrer" className="text-4xl">
               <i className="pi pi-linkedin" style={{ fontSize: '2rem' }}></i>
             </a>
-            <a href="https://github.com/Visvanathan" target="_blank" rel="noopener noreferrer" className="text-4xl text-indigo">
+            <a href="https://github.com/Visvanathan" target="_blank" rel="noopener noreferrer" className="text-4xl">
               <i className="pi pi-github" style={{ fontSize: '2rem' }}></i>
             </a>
           </div>
         </div>
-        <div className="relative order-1 flex justify-center perspective-[800px]">
+        <div className="relative order-1 flex justify-center perspective-[800px] sm:mb-10">
              <div className="transform-3d rotate-y-0 hover:rotate-y-12 transition-transform duration-500">
-                <div className="overflow-hidden border-8 border-white  shadow-2xl rounded-lg">
+                <div className="overflow-hidden border-8 border-white dark:border-dark-indigo  shadow-2xl rounded-lg">
                   <img className="object-cover w-[30rem] h-auto" src={picture} alt="Visvanathan D" />
                 </div>
             </div>
         </div>
+      </div>
+      <div className='fixed flex dark:bg-dark-cream bg-cream shadow-xl/10 px-5 py-3 md:py-6 my-2 w-auto border-1 border-cream dark:border-dark-indigo rounded-2xl bottom-2 z-40 text-center items-center bg-[url(/bg-noice.png)] invisible sm:visible'>
+          🚀 Currently building&nbsp;<span className="font-bold">Branzia E-Commerce</span>&nbsp;an open-source project focused on affordable online store solutions.&nbsp;<a href="https://github.com/Branzia" target="_blank" className="underline"><i aria-label='GitHub' className="pi pi-github" style={{ fontSize: '2rem' }}></i></a>
       </div>
     </section>
   );

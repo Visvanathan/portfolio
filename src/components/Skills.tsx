@@ -20,11 +20,11 @@ export default function Skills() {
 
   return (
     <section className="max-w-8xl mx-15 p-10 bg-indigo rounded-4xl">
-      <h2 className="mb-10 text-5xl text-center md:text-6xl lg:text-[80px]  lg:tracking-[-4px] header-leading text-white">My Skills</h2>
+      <h2 className="uppercase mb-10 text-3xl text-center md:text-4xl   lg:tracking-[-4px] header-leading text-white ">My Skills</h2>
        <Tabs>
         <TabList className="flex flex-wrap gap-2 justify-center sm:justify-center sm:overflow-x-auto sm:whitespace-nowrap mb-10 px-2 font-BertholdScript">
           {categories.map((cat, i) => (
-            <Tab key={i} className="px-4 py-2 cursor-pointer border-6 border-double border-cream  shadow-2xl rounded-lg text-cream" selectedClassName="bg-cream text-indigo">{cat}</Tab>
+            <Tab key={i} className="px-4 py-2 cursor-pointer border-6 border-double border-cream shadow-2xl rounded-lg text-cream " selectedClassName="bg-cream dark:bg-dark-cream text-indigo dark:text-dark-indigo">{cat}</Tab>
           ))}
         </TabList>
         {categories.map((category, i) => (
@@ -48,7 +48,7 @@ export default function Skills() {
                         })}
                       />
                     </div>
-                    <span className="font-medium text-white text-center">{skill.name}</span>
+                    <span className="font-medium text-white  text-center">{skill.name}</span>
                   </div>
                 ))}
             </div>

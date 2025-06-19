@@ -20,11 +20,11 @@
   --color-dark-slate:#212529;
   --color-cream:#EBE6DB; 
   --color-indigo:#2C395B; 
+  --color-dark-cream:#3b2b7d; 
+  --color-dark-indigo:#C7D2F5; 
   --color-reddish-brown:#94745e; 
-}
-
-
-.linkedin-button .pi.pi-linkedin {
-  color: #0077B5;
-  font-size: 1.5rem;
+  --color-text-dark:#E0E0E0;
+  --color-muted-dark:#999999;
+  --color-surface-dark:#2A2A2A;
+  --color-border-dark:#3F3F3F;
 }

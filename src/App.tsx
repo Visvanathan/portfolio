@@ -10,7 +10,7 @@ function App() {
   const workRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className='bg-cream bg-[url(/bg-noice.png)] text-indigo'>
+    <div className='bg-cream  dark:bg-dark-cream bg-[url(/bg-noice.png)] text-indigo dark:text-dark-indigo'>
       <Hero workRef={workRef as React.RefObject<HTMLDivElement>} />
       <About />
       <Skills />

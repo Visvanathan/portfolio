@@ -17,7 +17,7 @@ export default function Hero() {
   }, [])
   return (
     <section className="py-16 px-6 max-w-7xl mx-auto" >
-        <h2 className="mb-10 text-5xl text-center md:text-6xl lg:text-[80px] text-indigo lg:tracking-[-4px] header-leading">A summary of My Resume</h2>
+        <h2 className="uppercase mb-10 text-3xl text-center md:text-4xl lg:tracking-[-4px] header-leading">A summary of My Resume</h2>
         <Timeline align="alternate"className="customized-timeline" value={experiences} content={(experience) => (
             <div>
             <h3 className="font-semibold ">{experience.title}</h3>
