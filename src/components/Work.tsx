@@ -4,12 +4,14 @@ import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Galleria } from 'primereact/galleria';
 import { Dialog } from 'primereact/dialog';
+import parse from 'html-react-parser';
 
 interface WorkItem {
   title: string;
   image: string;
   image_dir?: string;
   gallery?: string[];
+  summary?: string;
   details?: string;
   link: string;
 }
@@ -93,7 +95,7 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
                   {work.title}
                 </a>
               }
-              header={<img src={work.image} alt={work.title} className="h-60 object-cover object-top-left" />}
+              header={<img src={work.image} alt={work.title} onClick={() => handleViewProject(work)} className="h-60 object-cover object-top-left cursor-pointer" />}
               footer={
                 <div className="grid grid-cols-2 gap-4">
                   <Button
@@ -113,7 +115,7 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
               role="region"
             >
               <p className="text-indigo">
-                {work.details?.slice(0, 100) ?? 'No details available'}...
+                  {work.summary ? work.summary.slice(0, 100) + '...' : 'No details available'}
               </p>
             </Card>
           </div>
@@ -141,7 +143,7 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
         onHide={() => setDialogVisible(false)}
         style={{ width: '50vw' }}
       >
-        <p className="text-indigo whitespace-pre-line">{selectedWork?.details}</p>
+        <p className="text-indigo whitespace-pre-line">{selectedWork?.details && parse(selectedWork.details)}</p>
         {selectedWork?.link && (
           <a
             href={selectedWork.link}

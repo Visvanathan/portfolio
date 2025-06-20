@@ -3,13 +3,15 @@
     "title": "LB Blockhead",
     "image": "/work/lbblockhead/1.png",
     "image_dir": "/work/lbblockhead/",
-    "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
+    "summary": "Developed an Admin Dashboard for LBBlockhead.com using Filament with Laravel and Livewire for dynamic, real-time features.",
+    "details":"<ul><li><strong>Project Overview:</strong> Developed an Admin Dashboard for LBBlockhead.com using Filament with Laravel and Livewire for dynamic, real-time features.</li><li><strong>Key Responsibilities:</strong> Built and customized the admin interface to manage user data, transactions, and other backend operations efficiently. Integrated Livewire for real-time data updates and interactions without page reloads. Designed an intuitive, responsive dashboard with streamlined navigation and enhanced data visualization tools.</li><li><strong>Technologies Used:</strong> Laravel, Filament, Livewire, PHP, HTML, TailwindCSS .</li><li><strong>Achievements:</strong> Delivered a robust, high-performance admin dashboard, improving backend operations and providing a smooth user experience.</li></ul>" ,
     "link": "https://www.lbblockhead.com/login"
   },
   {
     "title": "Genuine Smith Field Virginia",
     "image": "/work/genuinesmithfieldva/1.png",
     "image_dir": "/work/genuinesmithfieldva/",
+    "summary": "",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://sandbox.genuinesmithfieldva.com/maestro/login"
   },
@@ -17,6 +19,7 @@
     "title": "Solokrafts",
     "image_dir": "/work/solokrafts/",
     "image": "/work/solokrafts/1.png",
+    "summary": "",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://www.solokrafts.in"
   },
@@ -24,13 +27,15 @@
     "title": "Pioneercoach",
     "image": "/work/pioneercoach/1.png",
     "image_dir": "/work/pioneercoach/",
+    "summary": "",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://pioneercoach.com/"
   },
   {
     "title": "My Connected Caregiver",
-    "image": "/work/lbblockhead/1.png",
-    "image_dir": "/work/lbblockhead/",
+    "image": "/work/myconnectedcaregiver/1.png",
+    "image_dir": "/work/myconnectedcaregiver/",
+    "summary": "",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://myconnectedcaregiver.com"
   },
@@ -38,6 +43,7 @@
     "title": "Tapes and Technical Solutions",
     "image": "/work/tapesandtech/1.jpg",
     "image_dir": "/work/tapesandtech/",
+    "summary": "",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://tapesandtech.com/"
   },
@@ -45,6 +51,7 @@
     "title": "Birdie Bros",
     "image": "/work/birdiebros/1.png",
     "image_dir": "/work/birdiebros/",
+    "summary": "",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://birdiebros.com"
   },
@@ -52,6 +59,7 @@
     "title": "Visit Waynesbro Virginia",
     "image": "/work/visitwaynesboro/1.png",
     "image_dir": "/work/visitwaynesboro/",
+    "summary": "",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://www.visitwaynesboro.com"
   },
@@ -59,6 +67,7 @@
     "title": "Visit Knox County Ohio",
     "image": "/work/visitknoxohio/1.png",
     "image_dir": "/work/visitknoxohio/",
+    "summary": "",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://visitknoxohio.org/"
   }
