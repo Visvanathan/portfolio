@@ -25,6 +25,7 @@ const allWorkImages = import.meta.glob('/public/work/**/*.{png,jpg,jpeg,webp,svg
 export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
   const [works, setWorks] = useState<WorkItem[]>([]);
   const [galleryItems, setGalleryItems] = useState<any[]>([]);
+  const [galleriaIndex, setGalleriaIndex] = useState(0);
   const [selectedWork, setSelectedWork] = useState<WorkItem | null>(null);
   const [dialogVisible, setDialogVisible] = useState(false);
 
@@ -45,10 +46,8 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
       .sort((a, b) => {
         const nameA = a.split('/').pop()?.toLowerCase() || '';
         const nameB = b.split('/').pop()?.toLowerCase() || '';
-
         const numA = parseInt(nameA.match(/\d+/)?.[0] || '0', 10);
         const numB = parseInt(nameB.match(/\d+/)?.[0] || '0', 10);
-
         return numA - numB;
       });
 
@@ -59,7 +58,9 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
     }));
 
     setGalleryItems(formattedItems);
+    setGalleriaIndex(0);
 
+    // Use ref to show the Galleria
     setTimeout(() => {
       galleriaRef.current?.show();
     }, 100);
@@ -81,7 +82,7 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
 
   return (
     <section ref={ref} className="max-w-7xl mx-auto p-10">
-      <h2 className="uppercase mb-10 text-3xl text-center md:text-4xl  lg:tracking-[-4px] header-leading">
+      <h2 className="uppercase mb-10 text-3xl text-center md:text-4xl lg:tracking-[-4px] header-leading">
         Some of my most recent projects
       </h2>
 
@@ -91,11 +92,18 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
             <Card
               className="w-full"
               title={
-                <a href={work.link} target="_blank" rel="noopener noreferrer" className="my-5 ">
+                <a href={work.link} target="_blank" rel="noopener noreferrer" className="my-5">
                   {work.title}
                 </a>
               }
-              header={<img src={work.image} alt={work.title} onClick={() => handleViewProject(work)} className="h-60 object-cover object-top-left cursor-pointer" />}
+              header={
+                <img
+                  src={work.image}
+                  alt={work.title}
+                  onClick={() => handleViewProject(work)}
+                  className="h-60 object-cover object-top-left cursor-pointer"
+                />
+              }
               footer={
                 <div className="grid grid-cols-2 gap-4">
                   <Button
@@ -115,17 +123,19 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
               role="region"
             >
               <p className="text-indigo">
-                  {work.summary ? work.summary.slice(0, 100) + '...' : 'No details available'}
+                {work.summary ? work.summary.slice(0, 100) + '...' : 'No details available'}
               </p>
             </Card>
           </div>
         ))}
       </div>
 
-      {/* Galleria Fullscreen */}
+      {/* Galleria Fullscreen (always rendered but hidden until show() is called) */}
       <Galleria
         ref={galleriaRef}
         value={galleryItems}
+        activeIndex={galleriaIndex}
+        onItemChange={(e) => setGalleriaIndex(e.index)}
         numVisible={5}
         fullScreen
         circular
@@ -134,6 +144,7 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
         showItemNavigators
         showThumbnails={false}
         item={itemTemplate}
+        onHide={() => setGalleryItems([])}
       />
 
       {/* Dialog for Read Project */}
@@ -143,7 +154,9 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
         onHide={() => setDialogVisible(false)}
         style={{ width: '50vw' }}
       >
-        <p className="text-indigo whitespace-pre-line">{selectedWork?.details && parse(selectedWork.details)}</p>
+        <p className="text-indigo whitespace-pre-line">
+          {selectedWork?.details && parse(selectedWork.details)}
+        </p>
         {selectedWork?.link && (
           <a
             href={selectedWork.link}
