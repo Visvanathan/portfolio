@@ -40,7 +40,15 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
     const matchedImages = Object.entries(allWorkImages)
       .filter(([path]) => path.startsWith(folderPath))
       .map(([_, url]) => url as string)
-      .sort();
+      .sort((a, b) => {
+        const nameA = a.split('/').pop()?.toLowerCase() || '';
+        const nameB = b.split('/').pop()?.toLowerCase() || '';
+
+        const numA = parseInt(nameA.match(/\d+/)?.[0] || '0', 10);
+        const numB = parseInt(nameB.match(/\d+/)?.[0] || '0', 10);
+
+        return numA - numB;
+      });
 
     const formattedItems = matchedImages.map((img) => ({
       itemImageSrc: img,
