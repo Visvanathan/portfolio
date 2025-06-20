@@ -12,7 +12,7 @@
     "image": "/work/genuinesmithfieldva/1.png",
     "image_dir": "/work/genuinesmithfieldva/",
     "summary": "",
-    "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
+    "details":"" ,
     "link": "https://sandbox.genuinesmithfieldva.com/maestro/login"
   },
   {
@@ -20,7 +20,7 @@
     "image_dir": "/work/solokrafts/",
     "image": "/work/solokrafts/1.png",
     "summary": "",
-    "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
+    "details":"" ,
     "link": "https://www.solokrafts.in"
   },
   {
@@ -28,7 +28,7 @@
     "image": "/work/pioneercoach/1.png",
     "image_dir": "/work/pioneercoach/",
     "summary": "",
-    "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
+    "details":"" ,
     "link": "https://pioneercoach.com/"
   },
   {
@@ -36,7 +36,7 @@
     "image": "/work/myconnectedcaregiver/1.png",
     "image_dir": "/work/myconnectedcaregiver/",
     "summary": "",
-    "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
+    "details":"" ,
     "link": "https://myconnectedcaregiver.com"
   },
   {
@@ -44,7 +44,7 @@
     "image": "/work/tapesandtech/1.jpg",
     "image_dir": "/work/tapesandtech/",
     "summary": "",
-    "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
+    "details":"" ,
     "link": "https://tapesandtech.com/"
   },
   {
@@ -52,7 +52,7 @@
     "image": "/work/birdiebros/1.png",
     "image_dir": "/work/birdiebros/",
     "summary": "",
-    "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
+    "details":"" ,
     "link": "https://birdiebros.com"
   },
   {
@@ -60,7 +60,7 @@
     "image": "/work/visitwaynesboro/1.png",
     "image_dir": "/work/visitwaynesboro/",
     "summary": "",
-    "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
+    "details":"" ,
     "link": "https://www.visitwaynesboro.com"
   },
   {
@@ -68,7 +68,7 @@
     "image": "/work/visitknoxohio/1.png",
     "image_dir": "/work/visitknoxohio/",
     "summary": "",
-    "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
+    "details":"" ,
     "link": "https://visitknoxohio.org/"
   }
 ]
