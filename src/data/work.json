@@ -1,7 +1,7 @@
 [
   {
     "title": "LB Blockhead",
-    "image": "/work/lbblockhead/login.png",
+    "image": "/work/lbblockhead/dashboard.png",
     "image_dir": "/work/lbblockhead/",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://www.lbblockhead.com/login"
@@ -43,15 +43,15 @@
   },
   {
     "title": "Tapes and Technical Solutions",
-    "image": "/work/tapesandtech/home.png",
+    "image": "/work/tapesandtech/home.jpg",
     "image_dir": "/work/tapesandtech/",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://tapesandtech.com/"
   },
   {
     "title": "Birdie Bros",
-    "image": "/work/lbblockhead/login.png",
-    "image_dir": "/work/lbblockhead/",
+    "image": "/work/birdiebros/1.png",
+    "image_dir": "/work/birdiebros/",
     "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis imperdiet leo, at sodales nunc consectetur ut. Maecenas nec metus a sapien feugiat finibus. Integer orci mi, fermentum vel aliquet sed, ultricies nec velit. Nunc malesuada dignissim sodales. Quisque ac auctor metus. Mauris pretium blandit nulla, ut porttitor lacus lacinia sit amet. Suspendisse bibendum id diam eget dictum." ,
     "link": "https://birdiebros.com"
   },

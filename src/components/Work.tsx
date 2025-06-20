@@ -64,7 +64,7 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
     <img
       src={item.itemImageSrc}
       alt={item.alt}
-      className="object-contain h-screen max-h-dvh w-auto max-w-dvh"
+      className="object-contain h-screen max-h-dvh w-auto max-w-lvh"
       loading="lazy"
     />
   );
@@ -85,7 +85,7 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
                   {work.title}
                 </a>
               }
-              header={<img src={work.image} alt={work.title} className="w-full h-60 object-cover object-top" />}
+              header={<img src={work.image} alt={work.title} className="h-60 object-cover object-top-left" />}
               footer={
                 <div className="grid grid-cols-2 gap-4">
                   <Button
