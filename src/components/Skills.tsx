@@ -24,7 +24,7 @@ export default function Skills() {
        <Tabs>
         <TabList className="flex flex-wrap gap-2 justify-center sm:justify-center sm:overflow-x-auto sm:whitespace-nowrap mb-10 px-2 font-BertholdScript">
           {categories.map((cat, i) => (
-            <Tab key={i} className="px-4 py-2 cursor-pointer border-6 border-double border-cream shadow-2xl rounded-lg text-cream " selectedClassName="bg-cream dark:bg-dark-cream text-indigo dark:text-dark-indigo">{cat}</Tab>
+            <Tab key={i} className="px-4 py-2 cursor-pointer border-6 border-double border-cream shadow-2xl rounded-lg text-cream " selectedClassName="bg-cream dark:bg-dark-cream text-indigo border-dark-cream dark:text-dark-indigo">{cat}</Tab>
           ))}
         </TabList>
         {categories.map((category, i) => (
