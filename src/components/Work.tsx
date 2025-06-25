@@ -101,13 +101,13 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
                   src={work.image}
                   alt={work.title}
                   onClick={() => handleViewProject(work)}
-                  className="h-60 object-cover object-top-left cursor-pointer"
+                  className="h-70 object-cover object-top-left cursor-pointer"
                 />
               }
               footer={
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <Button
-                    className="w-full bg-indigo dark:bg-dark-cream p-2 text-white cursor-pointer"
+                    className="w-full bg-indigo dark:bg-dark-cream p-2 text-white cursor-pointer hidden"
                     label="Read More"
                     onClick={() => handleReadProject(work)}
                     unstyled
@@ -122,7 +122,7 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
               }
               role="region"
             >
-              <p className="text-indigo">
+              <p className="text-indigo hidden">
                 {work.summary ? work.summary.slice(0, 100) + '...' : 'No details available'}
               </p>
             </Card>
