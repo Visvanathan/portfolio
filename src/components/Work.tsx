@@ -101,7 +101,7 @@ export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
                   src={work.image}
                   alt={work.title}
                   onClick={() => handleViewProject(work)}
-                  className="h-70 object-cover object-top-left cursor-pointer"
+                  className="h-80 object-cover object-top-left cursor-pointer"
                 />
               }
               footer={
