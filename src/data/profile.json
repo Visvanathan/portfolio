@@ -3,7 +3,18 @@
   "role": "Founder, Branzia",
   "location": "Pondicherry, India",
   "email": "info@branzia.app",
-  "whatsapp": { "number": "917358720104", "display": "+91 73587 20104" },
+  "branziaWhatsapp": { "number": "917358720104", "display": "+91 73587 20104" },
+  "chat": {
+    "title": "Branzia",
+    "subtitle": "Talk directly with the founder",
+    "greeting": "👋 Hi, you've reached Branzia on WhatsApp. How can I help?",
+    "placeholder": "Type your message...",
+    "quickReplies": [
+      { "label": "I have a project in mind", "message": "Hi Branzia, I saw Visvanathan's website and I have a project I'd like to discuss." },
+      { "label": "I'd like to know what Branzia does", "message": "Hi Branzia, I saw Visvanathan's website and I'd like to know more about what Branzia can build for my business." },
+      { "label": "Just saying hello", "message": "Hi Visvanathan, I came across your website and wanted to say hello." }
+    ]
+  },
   "branziaUrl": "https://www.branzia.app/",
   "branziaContactUrl": "https://www.branzia.app/contact/",
   "social": [

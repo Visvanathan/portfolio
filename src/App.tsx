@@ -8,6 +8,7 @@ import Toolkit from './components/Toolkit';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import WhatsAppChat from './components/WhatsAppChat';
 import { useReveal } from './hooks/useReveal';
 import { useCleanAnchors } from './hooks/useCleanAnchors';
 
@@ -35,6 +36,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppChat />
     </>
   );
 }

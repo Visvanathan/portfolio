@@ -75,12 +75,22 @@
   --color-sage: #c5c9a4;
   --color-rose: #ecbeb4;
   --color-wa: #25d366;
+  /* WhatsApp chat window: fixed colours in both themes, same as branzia.app */
+  --color-wa-hover: #1ebe5b;
+  --color-wa-dark: #075e54;
+  --color-wa-panel: #f0f0f0;
+  --color-wa-wall: #e5ddd5;
+  --color-wa-tint: #e7f8ee;
+  --color-wa-ink: #17302f;
 
   --font-head: "Sora", system-ui, sans-serif;
   --font-text: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --shadow-card: 0 1px 2px rgba(23, 48, 47, 0.05), 0 18px 40px -26px rgba(23, 48, 47, 0.3);
   --shadow-lift: 0 2px 4px rgba(23, 48, 47, 0.06), 0 30px 60px -30px rgba(23, 48, 47, 0.45);
+  --shadow-float: 0 10px 24px -8px rgba(23, 48, 47, 0.55);
+  --shadow-chat: 0 24px 48px -18px rgba(23, 48, 47, 0.55);
+  --shadow-bubble: 0 1px 1px rgba(23, 48, 47, 0.12);
 
   --animate-enter: enter 0.8s calc(var(--i, 0) * 0.09s) both cubic-bezier(0.2, 0.7, 0.2, 1);
   --animate-float: float 6s ease-in-out infinite;

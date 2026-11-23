@@ -33,7 +33,7 @@ export default function Contact() {
                 <FiMail /> {profile.email}
               </a>
               <a
-                href={`https://wa.me/${profile.whatsapp.number}?text=${waText}`}
+                href={`https://wa.me/${profile.branziaWhatsapp.number}?text=${waText}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-ghost"
