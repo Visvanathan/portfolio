@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You're offline · Visvanathan D</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#2E5A55" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- The service worker caches every /path this page links to, so it renders with no connection. -->
+    <link rel="preload" href="/fonts/sora.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-dvh flex flex-col">
+    <header class="wrap flex items-center h-[72px]">
+      <a href="/" class="flex items-center gap-3 no-underline text-ink">
+        <span class="grid place-items-center w-10 h-10 rounded-full bg-teal text-paper font-brand text-lg leading-none">V</span>
+        <span class="flex flex-col leading-tight">
+          <span class="font-head font-semibold text-[0.98rem]">Visvanathan D</span>
+          <span class="text-[0.78rem] text-hint">Founder, Branzia</span>
+        </span>
+      </a>
+    </header>
+
+    <main class="relative flex-1 grid place-items-center overflow-hidden py-16">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[640px] h-[640px] rounded-full bg-mint/20 blur-[120px] dark:bg-mint/10"></div>
+        <div class="absolute inset-0 grain opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_65%)]"></div>
+      </div>
+
+      <div class="wrap max-w-[640px] text-center">
+        <!-- Wi-Fi symbol with a slash -->
+        <div class="animate-enter mx-auto mb-8 grid place-items-center w-20 h-20 rounded-[24px] bg-card border border-line shadow-card text-teal" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="2" y1="2" x2="22" y2="22" />
+            <path d="M8.5 16.5a5 5 0 0 1 7 0" />
+            <path d="M2 8.82a15 15 0 0 1 4.17-2.65" />
+            <path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76" />
+            <path d="M16.85 11.25a10 10 0 0 1 2.22 1.68" />
+            <path d="M5 13a10 10 0 0 1 5.24-2.76" />
+            <line x1="12" y1="20" x2="12.01" y2="20" />
+          </svg>
+        </div>
+
+        <h1 class="animate-enter [--i:1]">You're offline.</h1>
+        <p class="lede mx-auto animate-enter [--i:2]">
+          Your connection dropped, so this page couldn't load. It will reload by itself as soon as you're back online.
+        </p>
+
+        <div class="animate-enter [--i:3] flex flex-col sm:flex-row items-center justify-center gap-3 mt-9">
+          <button type="button" id="retry" class="btn btn-primary">Try again</button>
+          <span id="status" role="status" class="inline-flex items-center gap-2.5 px-5 py-2 min-h-12.5 text-left rounded-[26px] border border-line bg-card text-[0.92rem] text-body">
+            <span class="shrink-0 w-2.5 h-2.5 rounded-full bg-rose"></span>
+            <span id="status-text">Waiting for a connection…</span>
+          </span>
+        </div>
+
+        <div class="animate-enter [--i:4] card mt-12 p-6 text-left">
+          <p class="font-head font-semibold text-ink">Want to reach me later?</p>
+          <p class="mt-1 text-[0.95rem]">Save these details and get in touch once you're connected again.</p>
+          <dl class="mt-4 grid sm:grid-cols-2 gap-3 text-[0.95rem]">
+            <div class="rounded-xl bg-cream border border-line px-4 py-3">
+              <dt class="text-[0.78rem] uppercase tracking-wider text-hint">Email</dt>
+              <dd class="font-medium text-ink select-all">info@branzia.app</dd>
+            </div>
+            <div class="rounded-xl bg-cream border border-line px-4 py-3">
+              <dt class="text-[0.78rem] uppercase tracking-wider text-hint">WhatsApp</dt>
+              <dd class="font-medium text-ink select-all">+91 73587 20104</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        var text = document.getElementById('status-text');
+        var dot = document.querySelector('#status > span');
+        document.getElementById('retry').addEventListener('click', function () { location.reload(); });
+
+        function backOnline() {
+          dot.className = 'shrink-0 w-2.5 h-2.5 rounded-full bg-accent animate-pulse-dot';
+          text.textContent = 'Back online. Reloading…';
+          setTimeout(function () { location.reload(); }, 600);
+        }
+
+        // Opened directly while online (for example to preview it): explain instead of reloading.
+        if (navigator.onLine && location.pathname === '/offline.html') {
+          dot.className = 'shrink-0 w-2.5 h-2.5 rounded-full bg-accent';
+          text.textContent = 'Preview: shown automatically when the connection drops';
+          return;
+        }
+        window.addEventListener('online', backOnline);
+      })();
+    </script>
+  </body>
+</html>

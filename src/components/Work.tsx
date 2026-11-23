@@ -1,173 +1,141 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import workData from '../data/work.json';
-import { Button } from 'primereact/button';
-import { Card } from 'primereact/card';
-import { Galleria } from 'primereact/galleria';
-import { Dialog } from 'primereact/dialog';
-import parse from 'html-react-parser';
+import { useMemo, useState } from 'react';
+import { FiArrowUpRight, FiMaximize2 } from 'react-icons/fi';
+import works from '../data/work.json';
+import Lightbox from './Lightbox';
 
-interface WorkItem {
-  title: string;
-  image: string;
-  image_dir?: string;
-  gallery?: string[];
-  summary?: string;
-  details?: string;
-  link: string;
+export type WorkItem = (typeof works)[number] & { featured?: boolean; contain?: boolean };
+
+const filters = [
+  { key: 'all', label: 'All work' },
+  { key: 'app', label: 'Web apps & dashboards' },
+  { key: 'site', label: 'Websites' },
+  { key: 'store', label: 'Catalogues' },
+] as const;
+
+const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+
+function Frame({ work, tall }: { work: WorkItem; tall?: boolean }) {
+  return (
+    <div className="relative rounded-[16px] overflow-hidden border border-line bg-cream">
+      <div className="flex items-center gap-1.5 px-3.5 h-8 border-b border-line bg-card">
+        <span className="w-2.5 h-2.5 rounded-full bg-rose" />
+        <span className="w-2.5 h-2.5 rounded-full bg-sage" />
+        <span className="w-2.5 h-2.5 rounded-full bg-mint" />
+        <span className="ml-3 truncate text-[0.72rem] text-hint">{host(work.link)}</span>
+      </div>
+      <div className={`${tall ? 'aspect-[16/11]' : 'aspect-[16/10]'} overflow-hidden ${work.contain ? 'bg-white grid place-items-center' : ''}`}>
+        <img
+          src={`/work/${work.slug}/thumb.webp`}
+          alt={`${work.title}: ${work.category.toLowerCase()} screenshot`}
+          loading="lazy"
+          decoding="async"
+          className={work.contain ? 'w-3/4 h-auto' : 'pan w-full h-full object-cover'}
+        />
+      </div>
+    </div>
+  );
 }
 
-// Load all images from /public/work/ recursively
-const allWorkImages = import.meta.glob('/public/work/**/*.{png,jpg,jpeg,webp,svg}', {
-  as: 'url',
-  eager: true,
-});
-
-export default forwardRef(function Work(_, ref: React.Ref<HTMLDivElement>) {
-  const [works, setWorks] = useState<WorkItem[]>([]);
-  const [galleryItems, setGalleryItems] = useState<any[]>([]);
-  const [galleriaIndex, setGalleriaIndex] = useState(0);
-  const [selectedWork, setSelectedWork] = useState<WorkItem | null>(null);
-  const [dialogVisible, setDialogVisible] = useState(false);
-
-  const galleriaRef = useRef<any>(null);
-
-  useEffect(() => {
-    setWorks(workData);
-  }, []);
-
-  const handleViewProject = (work: WorkItem) => {
-    if (!work.image_dir) return;
-
-    const folderPath = '/public' + work.image_dir;
-
-    const matchedImages = Object.entries(allWorkImages)
-      .filter(([path]) => path.startsWith(folderPath))
-      .map(([_, url]) => url as string)
-      .sort((a, b) => {
-        const nameA = a.split('/').pop()?.toLowerCase() || '';
-        const nameB = b.split('/').pop()?.toLowerCase() || '';
-        const numA = parseInt(nameA.match(/\d+/)?.[0] || '0', 10);
-        const numB = parseInt(nameB.match(/\d+/)?.[0] || '0', 10);
-        return numA - numB;
-      });
-
-    const formattedItems = matchedImages.map((img) => ({
-      itemImageSrc: img,
-      thumbnailImageSrc: img,
-      alt: work.title,
-    }));
-
-    setGalleryItems(formattedItems);
-    setGalleriaIndex(0);
-
-    // Use ref to show the Galleria
-    setTimeout(() => {
-      galleriaRef.current?.show();
-    }, 100);
-  };
-
-  const handleReadProject = (work: WorkItem) => {
-    setSelectedWork(work);
-    setDialogVisible(true);
-  };
-
-  const itemTemplate = (item: any) => (
-    <img
-      src={item.itemImageSrc}
-      alt={item.alt}
-      className="object-contain h-screen max-h-dvh w-auto max-w-lvh"
-      loading="lazy"
-    />
-  );
-
+function Card({ work, onOpen, featured, index, refiltered }: { work: WorkItem; onOpen: () => void; featured?: boolean; index: number; refiltered: boolean }) {
   return (
-    <section ref={ref} className="max-w-7xl mx-auto p-10">
-      <h2 className="uppercase mb-10 text-3xl text-center md:text-4xl lg:tracking-[-4px] header-leading">
-        Some of my most recent projects
-      </h2>
-
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {works.map((work, idx) => (
-          <div key={idx} className="flex flex-col items-center">
-            <Card
-              className="w-full"
-              title={
-                <a href={work.link} target="_blank" rel="noopener noreferrer" className="my-5">
-                  {work.title}
-                </a>
-              }
-              header={
-                <img
-                  src={work.image}
-                  alt={work.title}
-                  onClick={() => handleViewProject(work)}
-                  className="h-80 object-cover object-top-left cursor-pointer"
-                />
-              }
-              footer={
-                <div className="grid grid-cols-1 gap-4">
-                  <Button
-                    className="w-full bg-indigo dark:bg-dark-cream p-2 text-white cursor-pointer hidden"
-                    label="Read More"
-                    onClick={() => handleReadProject(work)}
-                    unstyled
-                  />
-                  <Button
-                    className="w-full bg-reddish-brown p-2 text-white cursor-pointer"
-                    label="Preview"
-                    onClick={() => handleViewProject(work)}
-                    unstyled
-                  />
-                </div>
-              }
-              role="region"
-            >
-              <p className="text-indigo hidden">
-                {work.summary ? work.summary.slice(0, 100) + '...' : 'No details available'}
-              </p>
-            </Card>
-          </div>
-        ))}
-      </div>
-
-      {/* Galleria Fullscreen (always rendered but hidden until show() is called) */}
-      <Galleria
-        ref={galleriaRef}
-        value={galleryItems}
-        activeIndex={galleriaIndex}
-        onItemChange={(e) => setGalleriaIndex(e.index)}
-        numVisible={5}
-        fullScreen
-        circular
-        transitionInterval={3000}
-        autoPlay
-        showItemNavigators
-        showThumbnails={false}
-        item={itemTemplate}
-        onHide={() => setGalleryItems([])}
-      />
-
-      {/* Dialog for Read Project */}
-      <Dialog
-        header={selectedWork?.title}
-        visible={dialogVisible}
-        onHide={() => setDialogVisible(false)}
-        style={{ width: '50vw' }}
+    <article
+      className={`${refiltered ? 'animate-enter' : 'reveal'} group card p-3 sm:p-3.5 flex flex-col transition-[box-shadow,translate] duration-300 hover:shadow-lift hover:-translate-y-1 ${featured ? 'md:col-span-3' : 'md:col-span-2'}`}
+      style={{ ['--i' as string]: index % 3 }}
+    >
+      <button
+        type="button"
+        onClick={onOpen}
+        className="relative block text-left cursor-zoom-in rounded-[16px]"
+        aria-label={`View ${work.images} screenshot${work.images > 1 ? 's' : ''} of ${work.title}`}
       >
-        <p className="text-indigo whitespace-pre-line">
-          {selectedWork?.details && parse(selectedWork.details)}
-        </p>
-        {selectedWork?.link && (
+        <Frame work={work} tall={featured} />
+        <span className="absolute right-3 bottom-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/70 text-white text-[0.78rem] backdrop-blur opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+          <FiMaximize2 size={13} /> {work.images} screen{work.images > 1 ? 's' : ''}
+        </span>
+      </button>
+
+      <div className="flex flex-col flex-1 px-2.5 pt-5 pb-2">
+        <p className="text-[0.78rem] font-semibold uppercase tracking-[0.1em] text-teal">{work.category}</p>
+        <div className="flex items-start justify-between gap-4 mt-1.5">
+          <h3 className={featured ? 'text-[1.45rem]' : ''}>{work.title}</h3>
           <a
-            href={selectedWork.link}
+            href={work.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block text-indigo underline"
+            aria-label={`Visit ${work.title} (opens in a new tab)`}
+            className="shrink-0 grid place-items-center w-9 h-9 rounded-full border border-line text-ink hover:bg-teal hover:text-paper hover:border-teal transition-colors"
           >
-            Visit Site
+            <FiArrowUpRight />
           </a>
-        )}
-      </Dialog>
+        </div>
+        <p className="mt-2 text-[0.96rem] leading-relaxed">{work.summary}</p>
+        <ul className="flex flex-wrap gap-1.5 mt-auto pt-5">
+          {work.tags.map((t) => (
+            <li key={t} className="chip">
+              {t}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
+}
+
+export default function Work() {
+  const [filter, setFilter] = useState<(typeof filters)[number]['key']>('all');
+  const [open, setOpen] = useState<WorkItem | null>(null);
+  const [refiltered, setRefiltered] = useState(false);
+
+  const list = useMemo(() => (works as WorkItem[]).filter((w) => filter === 'all' || w.kind === filter), [filter]);
+
+  // Wide cards sit two to a row, the rest three to a row. Featured projects are wide in
+  // the "All" view, and the tail is balanced so no row is left with a single card.
+  const wide = useMemo(() => {
+    const featured = filter === 'all' ? list.filter((w) => w.featured) : [];
+    const rest = list.filter((w) => !featured.includes(w));
+    const tail = rest.length % 3 === 2 ? 2 : rest.length % 3 === 1 ? 4 : 0;
+    return new Set([...featured, ...rest.slice(rest.length - tail)].map((w) => w.slug));
+  }, [list, filter]);
+
+  return (
+    <section id="work" className="section bg-cream/60 border-y border-line">
+      <div className="wrap">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+          <div className="reveal max-w-2xl">
+            <p className="eyebrow">Selected work</p>
+            <h2>Software that real businesses run on every day.</h2>
+            <p className="lede">
+              Booking systems, admin dashboards, tourism websites and product catalogues, built over a decade of remote work with teams in the US and India. Click any project to browse the screens.
+            </p>
+          </div>
+          <div role="tablist" aria-label="Filter projects" className="reveal flex flex-wrap gap-1.5 p-1.5 rounded-full bg-card border border-line self-start lg:self-end">
+            {filters.map((f) => (
+              <button
+                key={f.key}
+                role="tab"
+                aria-selected={filter === f.key}
+                onClick={() => {
+                  setFilter(f.key);
+                  setRefiltered(true);
+                }}
+                className={`px-4 py-2 rounded-full text-[0.88rem] font-medium cursor-pointer transition-colors ${
+                  filter === f.key ? 'bg-teal text-paper' : 'text-body hover:text-ink hover:bg-cream'
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div key={filter} className="grid md:grid-cols-6 gap-5 sm:gap-6">
+          {list.map((w, i) => (
+            <Card key={w.slug} work={w} index={i} featured={wide.has(w.slug)} refiltered={refiltered} onOpen={() => setOpen(w)} />
+          ))}
+        </div>
+      </div>
+
+      {open && <Lightbox work={open} onClose={() => setOpen(null)} />}
     </section>
   );
-});
+}

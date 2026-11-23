@@ -1,24 +1,38 @@
-import React,{ useRef } from 'react';
+import Nav from './components/Nav';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
+import Story from './components/Story';
 import Work from './components/Work';
+import Branzia from './components/Branzia';
+import Principles from './components/Principles';
+import Toolkit from './components/Toolkit';
+import Experience from './components/Experience';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { useReveal } from './hooks/useReveal';
 
-function App() {
-  const workRef = useRef<HTMLDivElement>(null);
+export default function App() {
+  useReveal();
 
   return (
-    <div className='bg-cream  dark:bg-dark-cream bg-[url(/bg-noice.png)] text-indigo dark:text-dark-indigo'>
-      <Hero workRef={workRef as React.RefObject<HTMLDivElement>} />
-      <About />
-      <Skills />
-      <Experience />
-      <Work ref={workRef} />
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-full focus:bg-teal focus:text-paper"
+      >
+        Skip to content
+      </a>
+      <Nav />
+      <main id="main">
+        <Hero />
+        <Story />
+        <Work />
+        <Branzia />
+        <Experience />
+        <Principles />
+        <Toolkit />
+        <Contact />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
-
-export default App;

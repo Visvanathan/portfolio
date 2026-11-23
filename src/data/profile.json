@@ -1,0 +1,20 @@
+{
+  "name": "Visvanathan D",
+  "role": "Founder, Branzia",
+  "location": "Pondicherry, India",
+  "email": "info@branzia.app",
+  "whatsapp": { "number": "917358720104", "display": "+91 73587 20104" },
+  "branziaUrl": "https://www.branzia.app/",
+  "branziaContactUrl": "https://www.branzia.app/contact/",
+  "social": [
+    { "label": "LinkedIn", "icon": "linkedin", "url": "https://www.linkedin.com/in/visvanathan-d/" },
+    { "label": "GitHub", "icon": "github", "url": "https://github.com/Visvanathan" },
+    { "label": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/visvanathan.founder/" }
+  ],
+  "stats": [
+    { "value": "14+", "label": "years building for the web" },
+    { "value": "10", "label": "years remote with US teams" },
+    { "value": "10", "label": "projects in this portfolio" },
+    { "value": "1", "label": "company founded: Branzia" }
+  ]
+}

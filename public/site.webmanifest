@@ -1,0 +1,14 @@
+{
+  "name": "Visvanathan D · Founder of Branzia",
+  "short_name": "Visvanathan D",
+  "description": "Laravel developer with 14+ years of experience and founder of Branzia.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf5",
+  "theme_color": "#2E5A55",
+  "icons": [
+    { "src": "/favicon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

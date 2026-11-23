@@ -1,74 +1,105 @@
 [
   {
+    "slug": "pioneercoach",
+    "title": "Pioneer Coach",
+    "kind": "app",
+    "category": "Booking & operations platform",
+    "summary": "A charter-bus company's public site and the back office behind it: quote requests, tours, routing, pricing, contract payment schedules, and records for buses, drivers and trailers.",
+    "tags": ["Quotes & booking", "Operations", "Payments"],
+    "images": 21,
+    "link": "https://pioneercoach.com/",
+    "featured": true
+  },
+  {
+    "slug": "genuinesmithfieldva",
+    "title": "Genuine Smithfield",
+    "kind": "site",
+    "category": "Destination website",
+    "summary": "Smithfield, Virginia's official visitor guide: an events calendar with public submissions, filterable directories for dining, lodging, shopping and attractions, trip itineraries, a wishlist and a weekly newsletter.",
+    "tags": ["Events calendar", "Business directory", "Tourism"],
+    "images": 7,
+    "link": "https://www.genuinesmithfieldva.com/",
+    "featured": true
+  },
+  {
+    "slug": "lbblockhead",
     "title": "LB Blockhead",
-    "image": "/work/lbblockhead/1.png",
-    "image_dir": "/work/lbblockhead/",
-    "summary": "Developed an Admin Dashboard for LBBlockhead.com using Filament with Laravel and Livewire for dynamic, real-time features.",
-    "details":"<ul><li><strong>Project Overview:</strong> Developed an Admin Dashboard for LBBlockhead.com using Filament with Laravel and Livewire for dynamic, real-time features.</li><li><strong>Key Responsibilities:</strong> Built and customized the admin interface to manage user data, transactions, and other backend operations efficiently. Integrated Livewire for real-time data updates and interactions without page reloads. Designed an intuitive, responsive dashboard with streamlined navigation and enhanced data visualization tools.</li><li><strong>Technologies Used:</strong> Laravel, Filament, Livewire, PHP, HTML, TailwindCSS .</li><li><strong>Achievements:</strong> Delivered a robust, high-performance admin dashboard, improving backend operations and providing a smooth user experience.</li></ul>" ,
+    "kind": "app",
+    "category": "Admin dashboard",
+    "summary": "A hotel room-block and meetings dashboard for Long Beach, California, built with Filament and Livewire so hotels, meetings, resources and contacts update in real time.",
+    "tags": ["Laravel", "Filament", "Livewire"],
+    "images": 21,
     "link": "https://www.lbblockhead.com/login"
   },
   {
-    "title": "Genuine Smith Field Virginia",
-    "image": "/work/genuinesmithfieldva/1.png",
-    "image_dir": "/work/genuinesmithfieldva/",
-    "summary": "",
-    "details":"" ,
-    "link": "https://sandbox.genuinesmithfieldva.com/maestro/login"
-  },
-  {
-    "title": "Solokrafts",
-    "image_dir": "/work/solokrafts/",
-    "image": "/work/solokrafts/1.png",
-    "summary": "",
-    "details":"" ,
-    "link": "https://www.solokrafts.in"
-  },
-  {
-    "title": "Pioneercoach",
-    "image": "/work/pioneercoach/1.png",
-    "image_dir": "/work/pioneercoach/",
-    "summary": "",
-    "details":"" ,
-    "link": "https://pioneercoach.com/"
-  },
-  {
-    "title": "My Connected Caregiver",
-    "image": "/work/myconnectedcaregiver/1.png",
-    "image_dir": "/work/myconnectedcaregiver/",
-    "summary": "",
-    "details":"" ,
-    "link": "https://myconnectedcaregiver.com"
-  },
-  {
-    "title": "Tapes & Technical Solutions",
-    "image": "/work/tapesandtech/1.jpg",
-    "image_dir": "/work/tapesandtech/",
-    "summary": "",
-    "details":"" ,
-    "link": "https://tapesandtech.com/"
-  },
-  {
+    "slug": "birdiebros",
     "title": "Birdie Bros",
-    "image": "/work/birdiebros/1.png",
-    "image_dir": "/work/birdiebros/",
-    "summary": "",
-    "details":"" ,
+    "kind": "site",
+    "category": "Venue website",
+    "summary": "An indoor golf, food and drinks venue in Hendersonville, Tennessee: reservations, memberships, menus, events, leagues and a mailing-list signup.",
+    "tags": ["Reservations", "Memberships", "Events"],
+    "images": 8,
     "link": "https://birdiebros.com"
   },
   {
-    "title": "Visit Waynesbro Virginia",
-    "image": "/work/visitwaynesboro/1.png",
-    "image_dir": "/work/visitwaynesboro/",
-    "summary": "",
-    "details":"" ,
+    "slug": "visitknoxohio",
+    "title": "Visit Knox County",
+    "kind": "site",
+    "category": "Destination website",
+    "summary": "Knox County, Ohio's tourism site, with an events calendar, public event submissions, and pages for meetings, groups and weddings.",
+    "tags": ["Events calendar", "Submissions", "Tourism"],
+    "images": 10,
+    "link": "https://visitknoxohio.org/"
+  },
+  {
+    "slug": "visitwaynesboro",
+    "title": "Visit Waynesboro",
+    "kind": "site",
+    "category": "Destination website",
+    "summary": "Waynesboro, Virginia's visitor website: what's happening, event submissions, places to stay and a filterable arts directory.",
+    "tags": ["Events", "Listings", "Tourism"],
+    "images": 5,
     "link": "https://www.visitwaynesboro.com"
   },
   {
-    "title": "Visit Knox County Ohio",
-    "image": "/work/visitknoxohio/1.png",
-    "image_dir": "/work/visitknoxohio/",
-    "summary": "",
-    "details":"" ,
-    "link": "https://visitknoxohio.org/"
+    "slug": "solokrafts",
+    "title": "Solokrafts",
+    "kind": "store",
+    "category": "Product catalogue",
+    "summary": "A medical-equipment maker's catalogue for ICU beds, sterilisers and hospital furniture, with product pages, a catalogue download and customer login.",
+    "tags": ["Catalogue", "Enquiries", "India"],
+    "images": 8,
+    "link": "https://www.solokrafts.in"
+  },
+  {
+    "slug": "tapesandtech",
+    "title": "Tapes & Technical Solutions",
+    "kind": "store",
+    "category": "B2B catalogue",
+    "summary": "A specialty-tape supplier's catalogue where buyers browse products, add them to a list and submit it as a request for a quote.",
+    "tags": ["Catalogue", "Request a quote", "B2B"],
+    "images": 4,
+    "link": "https://tapesandtech.com/"
+  },
+  {
+    "slug": "elitebusinesssource",
+    "title": "Elite Business Source",
+    "kind": "store",
+    "category": "Online store",
+    "summary": "An online store for office, breakroom, janitorial and safety supplies and furniture, with category browsing, detailed product pages, cart, wishlists and customer accounts.",
+    "tags": ["WooCommerce", "Cart & checkout", "B2B supplies"],
+    "images": 4,
+    "link": "https://www.elitebusinesssource.com/"
+  },
+  {
+    "slug": "myconnectedcaregiver",
+    "title": "My Connected Caregiver",
+    "kind": "app",
+    "category": "Healthcare platform",
+    "summary": "A web platform for caregivers.",
+    "tags": ["Healthcare"],
+    "images": 1,
+    "link": "https://myconnectedcaregiver.com",
+    "contain": true
   }
 ]

@@ -1,31 +1,167 @@
 @import "tailwindcss";
-@layer tailwind-base, primereact, tailwind-utilities;
-@import "primereact/resources/themes/lara-light-blue/theme.css" layer(primereact);
-@import "primeicons/primeicons.css";
 
+/* Dark mode follows the .dark class on <html>, set before paint in index.html. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-
-@font-face {  
-  font-family: berthold;  
-  font-style: normal;  
-  font-weight: 400;
-  font-display: swap;  
-  src: url("/fonts/BertholdScriptRegular.otf") format("opentype");
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/sora.woff2") format("woff2");
+  font-weight: 100 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/fonts/bricolage-grotesque.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/instrument-sans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
 }
 
-@theme {  
-  --color-charcoal: #4c4d4d;
-  --color-maize: #f5df4e; 
-  --color-dark-slate:#212529;
-  --color-cream:#EBE6DB; 
-  --color-indigo:#2C395B; 
-  --color-dark-cream:#3b2b7d; 
-  --color-dark-indigo:#C7D2F5; 
-  --color-reddish-brown:#94745e; 
-  --color-text-dark:#E0E0E0;
-  --color-muted-dark:#999999;
-  --color-surface-dark:#2A2A2A;
-  --color-border-dark:#3F3F3F;
+/* Branzia palette. Colours are variables so dark mode only swaps the values. */
+:root {
+  --paper: #fbfaf5;
+  --cream: #f3f0e4;
+  --card: #ffffff;
+  --ink: #17302f;
+  --body: #47605f;
+  --hint: #667a78;
+  --teal: #2e5a55;
+  --teal-deep: #1d403d;
+  --accent: #519e8a;
+  --accent-soft: #e3efe9;
+  --line: rgba(23, 48, 47, 0.1);
+  --line-strong: rgba(23, 48, 47, 0.16);
+  --panel: #1d403d;
+  --panel-ink: #f3f0e4;
+  color-scheme: light;
 }
-.p-card-content {padding: 0;}
+.dark {
+  --paper: #0f1d1c;
+  --cream: #142625;
+  --card: #172b2a;
+  --ink: #eef2ea;
+  --body: #b3c2bd;
+  --hint: #8da19c;
+  --teal: #7eb09b;
+  --teal-deep: #9cc6b3;
+  --accent: #7eb09b;
+  --accent-soft: #1d3a36;
+  --line: rgba(238, 242, 234, 0.09);
+  --line-strong: rgba(238, 242, 234, 0.16);
+  --panel: #0a1514;
+  --panel-ink: #eef2ea;
+  color-scheme: dark;
+}
+
+@theme {
+  --color-*: initial;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-transparent: transparent;
+  --color-paper: var(--paper);
+  --color-cream: var(--cream);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-hint: var(--hint);
+  --color-teal: var(--teal);
+  --color-teal-deep: var(--teal-deep);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-panel: var(--panel);
+  --color-panel-ink: var(--panel-ink);
+  --color-mint: #7eb09b;
+  --color-sage: #c5c9a4;
+  --color-rose: #ecbeb4;
+  --color-wa: #25d366;
+
+  --font-head: "Sora", system-ui, sans-serif;
+  --font-brand: "Bricolage Grotesque", "Sora", system-ui, sans-serif;
+  --font-text: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(23, 48, 47, 0.05), 0 18px 40px -26px rgba(23, 48, 47, 0.3);
+  --shadow-lift: 0 2px 4px rgba(23, 48, 47, 0.06), 0 30px 60px -30px rgba(23, 48, 47, 0.45);
+
+  --animate-enter: enter 0.8s calc(var(--i, 0) * 0.09s) both cubic-bezier(0.2, 0.7, 0.2, 1);
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-out infinite;
+
+  @keyframes enter { from { opacity: 0; transform: translateY(18px); } }
+  @keyframes float { 50% { transform: translateY(-8px); } }
+  @keyframes pulse-dot {
+    0% { box-shadow: 0 0 0 0 rgba(81, 158, 138, 0.55); }
+    100% { box-shadow: 0 0 0 10px rgba(81, 158, 138, 0); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+    -webkit-text-size-adjust: 100%;
+    @variant motion-reduce { scroll-behavior: auto; }
+  }
+  body {
+    @apply bg-paper text-body font-text antialiased;
+    font-size: 17px;
+    line-height: 1.65;
+    transition: background-color 0.25s ease;
+  }
+  h1, h2, h3, h4 { @apply text-ink font-head font-semibold text-balance; }
+  h1 { font-size: clamp(2.4rem, 5.4vw, 4.2rem); line-height: 1.05; letter-spacing: -0.04em; }
+  h2 { font-size: clamp(1.9rem, 3.8vw, 2.9rem); line-height: 1.12; letter-spacing: -0.03em; }
+  h3 { font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: var(--accent-soft); color: var(--ink); }
+}
+
+@layer components {
+  .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
+  @media (max-width: 640px) { .wrap { width: calc(100% - 32px); } }
+  .section { padding-block: clamp(72px, 9vw, 128px); }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 mb-4 text-teal font-head font-semibold text-[0.8rem] uppercase tracking-[0.12em];
+  }
+  .eyebrow::before { content: ""; @apply w-6 h-px bg-current; }
+  .lede { @apply max-w-[36em] mt-5 text-[clamp(1.05rem,1.5vw,1.2rem)]; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 min-h-12.5 px-6.5 rounded-full border border-transparent;
+    @apply font-semibold text-base/none no-underline cursor-pointer whitespace-nowrap;
+    @apply transition-[background-color,border-color,color,translate] duration-150 active:translate-y-px motion-reduce:transition-none;
+  }
+  .btn-primary { @apply bg-teal text-paper hover:bg-teal-deep; }
+  .btn-ghost { @apply border-line-strong text-ink hover:border-teal hover:bg-card; }
+  .btn-light { @apply bg-panel-ink text-panel hover:bg-white; }
+
+  .chip {
+    @apply inline-flex items-center px-3 py-1 rounded-full border border-line text-[0.8rem] text-body bg-card/60;
+  }
+  .card { @apply bg-card border border-line rounded-[22px] shadow-card; }
+
+  /* Reveal on scroll: .reveal elements get .in from useReveal(). */
+  .js-reveal .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: calc(var(--i, 0) * 80ms); }
+  .js-reveal .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  /* Full-page screenshots scroll slowly inside their frame on hover. */
+  .pan { object-position: 50% 0%; transition: object-position 7s cubic-bezier(0.45, 0, 0.3, 1); }
+  .group:hover .pan, .group:focus-visible .pan { object-position: 50% 100%; transition-duration: var(--pan, 7s); }
+  @media (prefers-reduced-motion: reduce) { .pan { transition: none; } }
+
+  .grain {
+    background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-enter, .animate-float, .animate-pulse-dot { animation: none !important; }
+}
