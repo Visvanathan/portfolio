@@ -1,4 +1,5 @@
-import { FiMail } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiCheck, FiCopy, FiMail } from 'react-icons/fi';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import profile from '../data/profile.json';
 import { CodeWindow, Str } from './Code';
@@ -17,6 +18,30 @@ function JsonRow({ k, v, href, last }: { k: string; v: string; href?: string; la
       )}
       {last ? '' : ','}
     </span>
+  );
+}
+
+function CopyEmail() {
+  const [copied, setCopied] = useState(false);
+  const copy = () =>
+    navigator.clipboard
+      ?.writeText(profile.email)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1800);
+      })
+      .catch(() => undefined);
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      aria-label={copied ? 'Email address copied' : 'Copy email address'}
+      title={copied ? 'Copied' : 'Copy email'}
+      className={`btn btn-ghost !px-0 w-12.5 ${copied ? '!text-brand !border-brand' : ''}`}
+    >
+      {copied ? <FiCheck /> : <FiCopy />}
+      <span role="status" className="sr-only">{copied ? 'Email address copied' : ''}</span>
+    </button>
   );
 }
 
@@ -46,6 +71,7 @@ export default function Contact() {
               <a href={`mailto:${profile.email}`} className="btn btn-ghost">
                 <FiMail /> {profile.email}
               </a>
+              <CopyEmail />
             </div>
             {/* The same details as data. Every value is a working link. */}
             <CodeWindow title="contact.json" className="mt-8 !shadow-none">

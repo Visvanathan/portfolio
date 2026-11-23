@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
 import FounderMark from './FounderMark';
 import { isMac, openPalette } from '../hooks/palette';
-import { useTheme } from '../hooks/theme';
+import { centreOf, useTheme } from '../hooks/theme';
 
 const links = [
   { label: 'Story', href: '#story' },
@@ -16,12 +16,40 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [mac] = useState(isMac);
+  const [current, setCurrent] = useState('');
+  const progress = useRef<HTMLDivElement>(null);
 
+  // Header background once scrolled, plus the reading-progress line (set directly, no re-render per frame).
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 12);
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.current?.style.setProperty('--progress', String(max > 0 ? Math.min(1, scrollY / max) : 0));
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+  // Highlight the nav link for the section being read: whichever section crosses a band near the top of
+  // the screen. Every section is watched, so sections without a nav link clear the highlight.
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setCurrent(e.target.id)),
+      { rootMargin: '-35% 0px -60% 0px' },
+    );
+    document.querySelectorAll('main section[id]').forEach((s) => io.observe(s));
+    return () => io.disconnect();
   }, []);
 
   return (
@@ -41,13 +69,22 @@ export default function Nav() {
 
         <div className="flex items-center gap-1 sm:gap-2">
           <ul className="hidden md:flex items-center gap-1 mr-2">
-            {links.map((l) => (
+            {links.map((l) => {
+              const here = current === l.href.slice(1);
+              return (
               <li key={l.href}>
-                <a href={l.href} className="px-3.5 py-2 rounded-lg text-[0.95rem] font-medium text-body no-underline hover:text-ink hover:bg-cream transition-colors">
+                <a
+                  href={l.href}
+                  aria-current={here ? 'location' : undefined}
+                  className={`relative px-3.5 py-2 rounded-lg text-[0.95rem] font-medium no-underline hover:text-ink hover:bg-cream transition-colors after:absolute after:left-3.5 after:right-3.5 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-brand after:transition-transform after:duration-300 after:origin-left ${
+                    here ? 'text-ink after:scale-x-100' : 'text-body after:scale-x-0'
+                  }`}
+                >
                   {l.label}
                 </a>
               </li>
-            ))}
+              );
+            })}
           </ul>
           <button
             type="button"
@@ -60,7 +97,7 @@ export default function Nav() {
           </button>
           <button
             type="button"
-            onClick={toggle}
+            onClick={(e) => toggle(centreOf(e.currentTarget))}
             aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
             className="grid place-items-center w-10 h-10 rounded-full text-ink hover:bg-cream transition-colors cursor-pointer"
           >
@@ -80,6 +117,14 @@ export default function Nav() {
           </button>
         </div>
       </nav>
+
+      {/* Reading progress: a hairline along the bottom of the header. */}
+      <div
+        ref={progress}
+        aria-hidden
+        className="absolute inset-x-0 -bottom-px h-0.5 bg-brand origin-left scale-x-(--progress) motion-reduce:hidden"
+        style={{ ['--progress' as string]: 0 }}
+      />
 
       {open && (
         <div className="md:hidden border-t border-line">

@@ -35,6 +35,8 @@ function notFoundPage(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss(), notFoundPage()],
+  // Shown in the footer as "last updated".
+  define: { __BUILD_DATE__: JSON.stringify(new Date().toISOString()) },
   // Multi-page: unknown addresses get a real 404 instead of falling back to the home page.
   appType: 'mpa',
   build: {

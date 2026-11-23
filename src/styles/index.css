@@ -157,6 +157,12 @@
   @media (prefers-reduced-motion: reduce) { .pan { transition: none; } }
 }
 
+/* Theme switch: the browser cross-fades by default; theme.ts replaces that with a circular reveal.
+   The body's own colour transition is paused so the new theme appears fully formed inside the circle. */
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+.theme-switching body { transition: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .animate-enter, .animate-pulse-dot, .animate-blink { animation: none !important; }
 }

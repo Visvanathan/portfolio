@@ -29,7 +29,7 @@ function useCommands(): Command[] {
     const social = Object.fromEntries(profile.social.map((s) => [s.icon, s.url]));
     return [
       ...sections.map(([id, label]) => ({ id: `go-${id}`, group: 'Go to', label, icon: FiHash, run: () => void scrollToSection(id) })),
-      { id: 'theme', group: 'Actions', label: 'Toggle dark mode', icon: FiMoon, keywords: 'theme light dark', run: () => void toggleTheme() },
+      { id: 'theme', group: 'Actions', label: 'Toggle dark mode', icon: FiMoon, keywords: 'theme light dark', run: () => void toggleTheme({ x: innerWidth / 2, y: innerHeight * 0.2 }) },
       {
         id: 'copy-email',
         group: 'Actions',
