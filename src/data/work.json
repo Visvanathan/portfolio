@@ -99,7 +99,6 @@
     "summary": "A web platform for caregivers.",
     "tags": ["Healthcare"],
     "images": 1,
-    "link": "https://myconnectedcaregiver.com",
-    "contain": true
+    "link": "https://myconnectedcaregiver.com"
   }
 ]
