@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MultiTypewriter from '../common/MultiTypewriter';
-import picture from '../assets/vishwa.jpeg';
+import picture from '../assets/vishwa.png';
 
 
 import { FiSun, FiMoon } from 'react-icons/fi';
