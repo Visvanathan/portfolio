@@ -1,42 +1,45 @@
-# Visvanathan D · personal site
+# Hi, I'm Visvanathan 👋
 
-Personal site and portfolio. React 19, Vite 6, Tailwind CSS 4.
+I build the software a business quietly depends on: booking engines, payment flows and the admin panels behind them.
 
-This site has its own identity, separate from Branzia: warm paper and ink with a rust accent, Fraunces headings, IBM Plex Sans text and JetBrains Mono labels, and the VD monogram. Branzia appears only in the hero line, the timeline and the "Now" card. Its services, sales copy and WhatsApp chat belong on branzia.app.
+Laravel and FilamentPHP developer in Pondicherry, India, with **14+ years** of PHP (since 2012) and 12 years working remotely with US companies. In August 2026 I founded **[Branzia](https://www.branzia.app/)**, a founder-led software company for small businesses.
 
-## Commands
+```bash
+$ php artisan about --me
 
-- `npm run dev`: local preview with hot reload.
-- `npm run build`: type-checks and writes the static site to `dist/`.
-- `npm run lint`: ESLint.
-
-## Editing content
-
-All text lives in `src/data/`, so most changes need no component edits:
-
-- `profile.json`: name, contact details, social links, hero stats.
-- `work.json`: portfolio projects. `slug` is the folder in `public/work/`, `images` is how many screenshots it has (`1.webp` … `N.webp`), `kind` drives the filter (`app`, `site`, `store`), `featured` makes the card wide.
-- `experience.json`: timeline, newest first.
-- `skills.json`: toolkit groups. The first group is shown as the large teal card.
-
-## Adding a project
-
-1. Put the original screenshots in `assets-src/work/<slug>/` (`1.png`, `2.png`, …). These are kept out of the deployed site.
-2. Convert them to `public/work/<slug>/N.webp` (max 1600px wide) and make a `thumb.webp` card cover (960px wide, top 4200px) from the best screen.
-3. Add an entry to `src/data/work.json`.
-
-## Structure
-
+Visvanathan D
+  Stack ............................ Laravel · FilamentPHP · Livewire
+  Mobile ................................ React Native (Android, iOS)
+  Architecture ................ Monoliths · Microservices · API-first
+  Experience ................................................ 14+ years
+  Location ......................................... Pondicherry, IN
+  Now ............................................ Founder, Branzia
 ```
-src/
-  components/   Nav, Hero, Story, Work (+ Lightbox), Experience, HowIWork, Toolkit, Now, Contact, Footer
-  data/         editable content (JSON)
-  hooks/        useReveal: scroll-in animation
-  styles/       index.css: design tokens, light/dark colours, shared classes
-404.html        "Page not found", served by the host for unknown addresses
-offline.html    shown by the service worker when there's no connection
-public/         fonts, images, optimised screenshots, plus:
-  sw.js           service worker: home page opens offline, other pages fall back to offline.html
-  site.webmanifest, robots.txt, sitemap.xml
-assets-src/     original full-size screenshots and photos (not deployed)
-```
+
+## What I work with
+
+| Area | Tools |
+|---|---|
+| **Backend** | PHP, Laravel, FilamentPHP, Livewire, REST APIs, queues & jobs |
+| **Frontend** | Tailwind CSS, Alpine.js, Blade, React, TypeScript |
+| **Mobile** | React Native for Android and iOS |
+| **Data** | PostgreSQL, MySQL, MongoDB |
+| **Payments & APIs** | Stripe, Razorpay, Authorize.Net, Shiprocket, Firebase, WhatsApp & Meta APIs |
+| **Commerce & CMS** | WooCommerce, Magento 2, WordPress |
+| **Testing** | Pest, PHPUnit, Postman |
+| **Infrastructure** | AWS (RDS, SES), Cloudflare, Docker, Nginx |
+
+## How I work
+
+- **Watch the work before writing code.** Good software removes steps from people's routine instead of adding new ones.
+- **Build it to be maintained.** Tests in Pest, readable code, proven choices over clever ones.
+- **Pick the architecture the problem needs.** A well-structured monolith is often right; microservices earn their place. I've built and run both.
+- **One backend, every screen.** The same Laravel API powers the website, the admin panel and the mobile app.
+
+## Newsletter
+
+📬 **[No-Rush Dev Notes](https://www.linkedin.com/newsletters/no-rush-dev-notes-7330225578857455616/)** on LinkedIn: short, practical notes on Laravel, Docker, DevOps and AI.
+
+## Find me
+
+🌐 [founder.branzia.app](https://founder.branzia.app/) · 💼 [LinkedIn](https://www.linkedin.com/in/visvanathan-d/) · 🏢 [Branzia](https://www.branzia.app/) · ✉️ visvanathan.tech@gmail.com
