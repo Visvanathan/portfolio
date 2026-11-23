@@ -119,6 +119,8 @@
   h2 { font-size: clamp(1.9rem, 3.8vw, 2.9rem); line-height: 1.12; letter-spacing: -0.03em; }
   h3 { font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  /* Sections focused by in-page links (useCleanAnchors) shouldn't get a page-sized outline. */
+  [tabindex="-1"]:focus { outline: none; }
   ::selection { background: var(--accent-soft); color: var(--ink); }
 }
 

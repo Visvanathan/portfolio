@@ -9,9 +9,11 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { useReveal } from './hooks/useReveal';
+import { useCleanAnchors } from './hooks/useCleanAnchors';
 
 export default function App() {
   useReveal();
+  useCleanAnchors();
 
   return (
     <>
