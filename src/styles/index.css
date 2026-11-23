@@ -157,6 +157,13 @@
   @media (prefers-reduced-motion: reduce) { .pan { transition: none; } }
 }
 
+/* VD mark draws itself (FounderMark draw): the V, then the D's curve. FounderMark replays it when its
+   link is hovered. Opacity hides the round-cap dot a zero-length stroke would leave at the start. */
+@keyframes mark-draw { from { stroke-dashoffset: 1; opacity: 0; } 4% { opacity: 1; } to { stroke-dashoffset: 0; opacity: 1; } }
+.mark-draw path { stroke-dasharray: 1; animation: mark-draw 0.6s 0.15s cubic-bezier(0.65, 0, 0.35, 1) both; }
+.mark-draw .mark-d { animation-delay: 0.6s; animation-duration: 0.55s; }
+@media (prefers-reduced-motion: reduce) { .mark-draw path { animation: none; } }
+
 /* Theme switch: the browser cross-fades by default; theme.ts replaces that with a circular reveal.
    The body's own colour transition is paused so the new theme appears fully formed inside the circle. */
 ::view-transition-old(root),

@@ -59,11 +59,19 @@ export default function Nav() {
       }`}
     >
       <nav className="wrap flex items-center justify-between h-[72px]" aria-label="Main">
-        <a href="#top" className="flex items-center gap-3 no-underline text-ink" onClick={() => setOpen(false)}>
-          <FounderMark className="size-9 shrink-0" />
+        <a href="#top" aria-label="Visvanathan D, back to top" className="group flex items-center gap-3 no-underline text-ink" onClick={() => setOpen(false)}>
+          <FounderMark draw className="size-9 shrink-0" />
           <span className="flex flex-col leading-tight">
             <span className="font-head font-medium text-[1.05rem]">Visvanathan D</span>
-            <span className="font-mono text-[0.72rem] text-hint">developer · founder</span>
+            {/* The logo goes home, so on hover the tagline becomes the terminal command for it. */}
+            <span className="relative font-mono text-[0.72rem] text-hint">
+              <span className="block transition-[opacity,translate] duration-200 group-hover:opacity-0 group-hover:-translate-y-1 group-focus-visible:opacity-0">
+                developer · founder
+              </span>
+              <span aria-hidden className="absolute inset-0 opacity-0 translate-y-1 transition-[opacity,translate] duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100">
+                <span className="text-brand">$</span> cd ~
+              </span>
+            </span>
           </span>
         </a>
 
