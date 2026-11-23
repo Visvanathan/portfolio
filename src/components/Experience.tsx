@@ -1,12 +1,29 @@
 import experience from '../data/experience.json';
 
 // A role sits on the main line, or on a side branch ("lane": "branch" in experience.json) for work done
-// alongside it. The timeline is drawn like a code branch graph: newest at the top, the side branch forks
-// off the main line below its role and, while it's still running, continues past the top of the list.
+// alongside it. The timeline is drawn like `git log --graph`: newest at the top, and the side branch
+// forks out of the main-line role it started during (the "|/" joins that role's dot). While it's still
+// running it's unmerged, so it continues past the top of the list.
+//
+//   * 9c1e2a4 (HEAD -> main) Founder · Branzia
+//   | * 4b7d0f3 (louder-design) Lead Software Engineer · Louder Design
+//   |/
+//   * e21a9b8 Senior Software Engineer · Keylink
 type Role = (typeof experience)[number] & { current?: boolean; lane?: string };
 
 const roles = experience as Role[];
 const branchAt = roles.findIndex((r) => r.lane === 'branch');
+
+/** A stable 7-character "commit hash" for a role, like `git log --oneline` prints. */
+function shortHash(text: string) {
+  let h = 0x811c9dc5;
+  for (const ch of text) h = Math.imul(h ^ ch.codePointAt(0)!, 0x01000193);
+  return (h >>> 0).toString(16).padStart(8, '0').slice(0, 7);
+}
+const slug = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+/** Ref labels git would print next to the commit: HEAD on the newest main-line role, the branch name on a side branch. */
+const refFor = (r: Role, i: number) => (r.lane === 'branch' ? slug(r.company) : i === 0 ? 'HEAD -> main' : null);
 
 // Rail geometry, in px from the left of each row: main line at x=12, side branch at x=36, nodes centred at y=13.
 const line = 'absolute w-0.5';
@@ -46,11 +63,13 @@ export default function Experience() {
                 {branchAt > 0 && i < branchAt && (
                   <span aria-hidden className={`${line} ${branchX} top-0 bottom-0 ${first ? 'bg-linear-to-b from-transparent to-hint/45' : 'bg-hint/45'}`} />
                 )}
+                {/* The branch's own role: its lane runs down from the node, then curves ("|/") into the main
+                    line in the row's bottom gap, meeting it just above the next role's dot, the commit it forked from. */}
                 {onBranch && (
                   <>
-                    <span aria-hidden className={`${line} ${branchX} top-0 h-[13px] bg-hint/45`} />
-                    <svg aria-hidden className="absolute left-0 top-[13px] w-12 h-14 overflow-visible" viewBox="0 0 48 56" fill="none">
-                      <path d="M36 0 C36 30 12 26 12 56" className="stroke-hint/45" strokeWidth="2" />
+                    <span aria-hidden className={`${line} ${branchX} top-0 bottom-12 bg-hint/45`} />
+                    <svg aria-hidden className="absolute left-0 bottom-0 w-12 h-12 overflow-visible" viewBox="0 0 48 48" fill="none">
+                      <path d="M36 0 C36 30 12 22 12 48" className="stroke-hint/45" strokeWidth="2" />
                     </svg>
                   </>
                 )}
@@ -63,7 +82,13 @@ export default function Experience() {
                   }`}
                 />
 
-                <p className="font-mono text-[0.78rem] text-hint">{r.date}</p>
+                <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[0.78rem] text-hint">
+                  <span className="text-brand/80" title="Commit">{shortHash(`${r.company} ${r.date}`)}</span>
+                  {refFor(r, i) && (
+                    <span className={`px-1.5 rounded border ${onBranch ? 'border-line-strong text-body' : 'border-brand/40 text-brand'}`}>{refFor(r, i)}</span>
+                  )}
+                  <span>{r.date}</span>
+                </p>
                 <h3 className="mt-1.5 !text-[1.3rem]">
                   {r.title} <span className="italic text-brand">· {r.company}</span>
                 </h3>
