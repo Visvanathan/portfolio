@@ -26,8 +26,8 @@
     "title": "LB Blockhead",
     "kind": "app",
     "category": "Admin dashboard",
-    "summary": "A hotel room-block and meetings dashboard for Long Beach, California, built with Filament and Livewire so hotels, meetings, resources and contacts update in real time.",
-    "tags": ["Laravel", "Filament", "Livewire"],
+    "summary": "A hotel room-block and meetings dashboard for Long Beach, California, built with FilamentPHP and Livewire so hotels, meetings, resources and contacts update in real time.",
+    "tags": ["Laravel", "FilamentPHP", "Livewire"],
     "images": 21,
     "link": "https://www.lbblockhead.com/login"
   },

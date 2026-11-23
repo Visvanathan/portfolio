@@ -1,49 +1,26 @@
-import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi';
+import { FiArrowDown } from 'react-icons/fi';
 import profile from '../data/profile.json';
+import works from '../data/work.json';
 import { SocialIcon } from './icons';
-import { BranziaMark } from './BranziaLogo';
+import { AboutRow, CodeWindow } from './Code';
 
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-[120px] pb-16 sm:pt-[148px] sm:pb-24">
-      {/* Soft brand glow + dot grid behind the hero */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 -right-40 w-[640px] h-[640px] rounded-full bg-mint/25 blur-[120px] dark:bg-mint/10" />
-        <div className="absolute top-60 -left-48 w-[480px] h-[480px] rounded-full bg-rose/30 blur-[120px] dark:bg-rose/5" />
-        <div className="absolute inset-0 grain opacity-60 [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]" />
-      </div>
-
       <div className="wrap grid lg:grid-cols-[1.15fr_0.85fr] gap-14 lg:gap-16 items-center">
         <div>
-          <a
-            href={profile.branziaUrl}
-            target="_blank"
-            rel="noopener"
-            className="animate-enter inline-flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 mb-7 rounded-full bg-card border border-line shadow-card no-underline text-[0.88rem] text-body hover:border-line-strong transition-colors"
-          >
-            <span className="grid place-items-center size-7 rounded-full bg-accent-soft text-teal-deep">
-              <BranziaMark className="size-3.5" />
-            </span>
-            <span>
-              Founder of <strong className="text-ink font-semibold">Branzia</strong>
-            </span>
-            <FiArrowUpRight className="text-hint" />
-          </a>
+          <p className="animate-enter mb-7 font-mono text-[0.82rem] text-hint">
+            <span className="text-brand">~/</span>visvanathan · {profile.location}
+            <span className="inline-block w-[0.5em] h-[1.05em] ml-1 align-[-0.15em] bg-brand animate-blink" aria-hidden />
+          </p>
 
           <h1 className="animate-enter [--i:1]">
-            I build the software{' '}
-            {/* Wraps freely on phones; the hand-drawn underline only shows once it fits on one line. */}
-            <span className="relative sm:whitespace-nowrap text-teal">
-              small businesses
-              <svg aria-hidden viewBox="0 0 300 12" preserveAspectRatio="none" className="hidden sm:block absolute left-0 -bottom-2 w-full h-3 text-mint">
-                <path d="M2 9 C 80 2, 200 2, 298 7" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-              </svg>
-            </span>{' '}
-            run on.
+            I build the software a business <em className="italic font-normal text-brand">quietly depends on.</em>
           </h1>
 
           <p className="lede animate-enter [--i:2]">
-            I'm Visvanathan, a Laravel developer with 14+ years of experience. I've built booking platforms, admin dashboards, online stores and tourism websites for businesses in the US and India. Today I run <strong className="text-ink font-semibold">Branzia</strong>, a founder-led software company that builds websites, online stores, apps, custom software and automation for small businesses.
+            I'm Visvanathan, a Laravel and FilamentPHP developer. I write the software companies in the US and India rely on: booking engines, payment flows and the admin panels behind them. These days I'm also the founder of{' '}
+            <a href={profile.branziaUrl} target="_blank" rel="noopener" className="text-ink font-medium underline decoration-line-strong underline-offset-4 hover:decoration-brand">Branzia</a>.
           </p>
 
           <div className="animate-enter [--i:3] flex flex-wrap items-center gap-3 mt-9">
@@ -70,9 +47,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Portrait with floating notes */}
+        {/* Portrait */}
         <div className="animate-enter [--i:2] relative mx-auto w-full max-w-[440px] lg:max-w-none">
-          <div className="relative rounded-[28px] overflow-hidden shadow-lift border border-line aspect-[4/5] bg-cream">
+          <div className="relative rounded-[18px] overflow-hidden shadow-lift border border-line aspect-[4/5] bg-cream">
             <img
               src="/img/visvanathan-desk.webp"
               alt="Visvanathan D at his desk, with code on the monitors and a system diagram on the whiteboard"
@@ -81,31 +58,33 @@ export default function Hero() {
               height={1402}
               fetchPriority="high"
             />
-            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/45 to-transparent" />
-            <div className="absolute left-5 bottom-5 text-white">
-              <p className="font-head font-semibold text-lg leading-tight">Visvanathan D</p>
-              <p className="text-sm text-white/80">{profile.location}</p>
-            </div>
           </div>
 
-          <div className="absolute -left-4 sm:-left-10 top-10 card px-4 py-3 animate-float flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse-dot" />
-            <div className="leading-tight">
-              <p className="text-[0.72rem] uppercase tracking-wider text-hint">Currently building</p>
-              <p className="font-head font-semibold text-ink text-[0.95rem]">Branzia</p>
-            </div>
-          </div>
-
-          <div className="absolute -right-3 sm:-right-8 bottom-24 card px-4 py-3 animate-float [animation-delay:-3s]">
-            <p className="font-head font-semibold text-ink text-2xl leading-none">14+</p>
-            <p className="text-[0.8rem] text-hint mt-1">years with PHP &amp; Laravel</p>
-          </div>
+          {/* `php artisan about`, but for me */}
+          <CodeWindow
+            title="~/visvanathan — zsh"
+            className="relative -mt-14 mx-4 sm:mx-8 lg:absolute lg:m-0 lg:-left-14 lg:-bottom-12 lg:w-[360px]"
+          >
+            <span className="block">
+              <span className="text-[#e8875f]">$</span> php artisan about <span className="text-white/45">--me</span>
+            </span>
+            <span className="block mt-2 text-[#e6c07b]">Visvanathan D</span>
+            <AboutRow label="Stack" value="Laravel · FilamentPHP" />
+            <AboutRow label="Mobile" value="React Native" />
+            <AboutRow label="Architecture" value="Monolith · Microservices" />
+            <AboutRow label="Experience" value="14+ years" />
+            <AboutRow label="Location" value="Pondicherry, IN" />
+            <AboutRow label="Now" value={<span className="text-[#b5cc8e]">Founder, Branzia</span>} />
+            <span className="block mt-2">
+              <span className="text-[#e8875f]">$</span> <span className="inline-block w-[0.55em] h-[1.1em] align-[-0.2em] bg-[#e9e3d9]/80 animate-blink" aria-hidden />
+            </span>
+          </CodeWindow>
         </div>
       </div>
 
       {/* Stats */}
       <div className="wrap mt-16 sm:mt-24">
-        <dl className="grid grid-cols-2 lg:grid-cols-4 rounded-[22px] border border-line bg-card/70 backdrop-blur divide-line [&>div]:border-line">
+        <dl className="grid grid-cols-2 lg:grid-cols-4 rounded-[14px] border border-line bg-card divide-line [&>div]:border-line">
           {profile.stats.map((s, i) => (
             <div
               key={s.label}
@@ -113,8 +92,8 @@ export default function Hero() {
               style={{ ['--i' as string]: i }}
             >
               <dt className="sr-only">{s.label}</dt>
-              <dd className="font-head font-semibold text-ink text-[clamp(1.8rem,3vw,2.4rem)] leading-none tracking-tight">{s.value}</dd>
-              <dd className="mt-2 text-[0.92rem] text-hint">{s.label}</dd>
+              <dd className="font-head font-medium text-ink text-[clamp(1.8rem,3vw,2.4rem)] leading-none tracking-tight">{'count' in s && s.count === 'work' ? works.length : s.value}</dd>
+              <dd aria-hidden className="mt-2 text-[0.92rem] text-hint">{s.label}</dd>
             </div>
           ))}
         </dl>

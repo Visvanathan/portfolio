@@ -1,6 +1,8 @@
-# Visvanathan D · Founder of Branzia
+# Visvanathan D · personal site
 
-Personal site and portfolio. React 19, Vite 6, Tailwind CSS 4, styled with the Branzia brand (palette, Sora / Instrument Sans fonts, logo).
+Personal site and portfolio. React 19, Vite 6, Tailwind CSS 4.
+
+This site has its own identity, separate from Branzia: warm paper and ink with a rust accent, Fraunces headings, IBM Plex Sans text and JetBrains Mono labels, and the VD monogram. Branzia appears only in the hero line, the timeline and the "Now" card. Its services, sales copy and WhatsApp chat belong on branzia.app.
 
 ## Commands
 
@@ -27,7 +29,7 @@ All text lives in `src/data/`, so most changes need no component edits:
 
 ```
 src/
-  components/   Nav, Hero, Story, Work (+ Lightbox), Branzia, Experience, Principles, Toolkit, Contact, Footer
+  components/   Nav, Hero, Story, Work (+ Lightbox), Experience, HowIWork, Toolkit, Now, Contact, Footer
   data/         editable content (JSON)
   hooks/        useReveal: scroll-in animation
   styles/       index.css: design tokens, light/dark colours, shared classes

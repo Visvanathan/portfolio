@@ -5,11 +5,7 @@ export default function Footer() {
     <footer className="border-t border-line">
       <div className="wrap flex flex-col sm:flex-row items-center justify-between gap-3 py-8 text-[0.88rem] text-hint">
         <p>
-          © {new Date().getFullYear()} {profile.name}. Founder of{' '}
-          <a href={profile.branziaUrl} target="_blank" rel="noopener" className="text-ink hover:text-teal">
-            Branzia
-          </a>
-          .
+          © {new Date().getFullYear()} {profile.name} · Pondicherry, India
         </p>
         <a href="#top" className="no-underline hover:text-ink">
           Back to top ↑

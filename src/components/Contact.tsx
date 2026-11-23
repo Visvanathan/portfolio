@@ -1,29 +1,43 @@
-import { FiArrowUpRight, FiMail, FiMapPin } from 'react-icons/fi';
-import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa6';
+import { FiMail } from 'react-icons/fi';
+import { FaLinkedinIn } from 'react-icons/fa6';
 import profile from '../data/profile.json';
-import { SocialIcon } from './icons';
+import { CodeWindow, Str } from './Code';
 
-const waText = encodeURIComponent('Hi Visvanathan, I came across your website and wanted to say hello.');
+function JsonRow({ k, v, href, last }: { k: string; v: string; href?: string; last?: boolean }) {
+  const value = <Str>"{v}"</Str>;
+  return (
+    <span className="block whitespace-pre">
+      {'  '}
+      <span className="text-[#8fbcd4]">"{k}"</span>: {href ? (
+        <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="underline decoration-white/20 underline-offset-4 hover:decoration-[#b5cc8e]">
+          {value}
+        </a>
+      ) : (
+        value
+      )}
+      {last ? '' : ','}
+    </span>
+  );
+}
 
 export default function Contact() {
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section pt-0">
       <div className="wrap">
-        <div className="reveal card relative overflow-hidden grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center p-7 sm:p-12 lg:p-16">
-          <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-mint/20 blur-[90px]" />
+        <div className="reveal card grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center p-7 sm:p-12 lg:p-16">
           <img
             src="/img/visvanathan-headshot.webp"
             alt="Portrait of Visvanathan D"
             loading="lazy"
             width={220}
             height={220}
-            className="relative w-28 h-28 md:w-52 md:h-52 rounded-[26px] object-cover border border-line shadow-card"
+            className="w-28 h-28 md:w-52 md:h-52 rounded-[14px] object-cover border border-line"
           />
-          <div className="relative">
+          <div>
             <p className="eyebrow">Say hello</p>
-            <h2>Let's connect.</h2>
+            <h2>Let's talk.</h2>
             <p className="lede">
-              Founders, developers and business owners are all welcome. I'm always happy to talk about software, small business and building a company. I reply personally.
+              Developers, founders and business owners are all welcome. I'm happy to talk about Laravel, remote work, small business or starting a company. I read and reply to every message myself.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <a href="https://www.linkedin.com/in/visvanathan-d/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
@@ -32,31 +46,18 @@ export default function Contact() {
               <a href={`mailto:${profile.email}`} className="btn btn-ghost">
                 <FiMail /> {profile.email}
               </a>
-              <a
-                href={`https://wa.me/${profile.branziaWhatsapp.number}?text=${waText}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-ghost"
-              >
-                <FaWhatsapp size={18} className="text-wa" /> WhatsApp
-              </a>
             </div>
-            <p className="mt-6 text-[0.95rem]">
-              Have a project in mind?{' '}
-              <a href={profile.branziaContactUrl} target="_blank" rel="noopener" className="font-semibold text-teal hover:text-teal-deep">
-                Tell Branzia what you need →
-              </a>
-            </p>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8 pt-6 border-t border-line text-[0.92rem]">
-              <span className="inline-flex items-center gap-2 text-hint">
-                <FiMapPin /> {profile.location} · working worldwide
-              </span>
-              {profile.social.map((s) => (
-                <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-ink no-underline hover:text-teal">
-                  <SocialIcon name={s.icon} size={16} /> {s.label} <FiArrowUpRight className="text-hint" size={14} />
-                </a>
+            {/* The same details as data. Every value is a working link. */}
+            <CodeWindow title="contact.json" className="mt-8 !shadow-none">
+              {'{\n'}
+              <JsonRow k="name" v={profile.name} />
+              <JsonRow k="location" v={profile.location} />
+              <JsonRow k="email" v={profile.email} href={`mailto:${profile.email}`} />
+              {profile.social.map((s, i) => (
+                <JsonRow key={s.url} k={s.label.toLowerCase()} v={s.url.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, '')} href={s.url} last={i === profile.social.length - 1} />
               ))}
-            </div>
+              {'}'}
+            </CodeWindow>
           </div>
         </div>
       </div>

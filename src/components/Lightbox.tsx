@@ -47,11 +47,11 @@ export default function Lightbox({ work, onClose }: { work: WorkItem; onClose: (
       onClose={onClose}
       onClick={(e) => e.target === e.currentTarget && dialogRef.current?.close()}
       aria-label={`${work.title} screenshots`}
-      className="fixed inset-0 m-0 p-0 w-screen h-dvh max-w-none max-h-none bg-[#0b1413]/95 text-white backdrop:bg-transparent open:flex flex-col"
+      className="fixed inset-0 m-0 p-0 w-screen h-dvh max-w-none max-h-none bg-[#12100e]/95 text-white backdrop:bg-transparent open:flex flex-col"
     >
       <header className="shrink-0 flex items-center justify-between gap-4 px-4 sm:px-6 h-16 border-b border-white/10">
         <div className="min-w-0">
-          <p className="font-head font-semibold truncate">{work.title}</p>
+          <p className="font-head font-medium truncate">{work.title}</p>
           <p className="text-[0.8rem] text-white/60 truncate">{work.category}</p>
         </div>
         <div className="flex items-center gap-2">

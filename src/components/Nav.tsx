@@ -1,35 +1,21 @@
 import { useEffect, useState } from 'react';
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
 import FounderMark from './FounderMark';
+import { isMac, openPalette } from '../hooks/palette';
+import { useTheme } from '../hooks/theme';
 
 const links = [
   { label: 'Story', href: '#story' },
   { label: 'Work', href: '#work' },
-  { label: 'Branzia', href: '#branzia' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Now', href: '#now' },
 ];
-
-function useTheme() {
-  const [dark, setDark] = useState(() => document.documentElement.classList.contains('dark'));
-
-  const toggle = () => {
-    const next = !dark;
-    document.documentElement.classList.toggle('dark', next);
-    try {
-      localStorage.setItem('theme', next ? 'dark' : 'light');
-    } catch {
-      /* storage unavailable: the choice lasts for this visit only */
-    }
-    setDark(next);
-  };
-
-  return { dark, toggle };
-}
 
 export default function Nav() {
   const { dark, toggle } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [mac] = useState(isMac);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -48,8 +34,8 @@ export default function Nav() {
         <a href="#top" className="flex items-center gap-3 no-underline text-ink" onClick={() => setOpen(false)}>
           <FounderMark className="size-9 shrink-0" />
           <span className="flex flex-col leading-tight">
-            <span className="font-head font-semibold text-[0.98rem]">Visvanathan D</span>
-            <span className="text-[0.78rem] text-hint">Founder, Branzia</span>
+            <span className="font-head font-medium text-[1.05rem]">Visvanathan D</span>
+            <span className="font-mono text-[0.72rem] text-hint">developer · founder</span>
           </span>
         </a>
 
@@ -57,12 +43,21 @@ export default function Nav() {
           <ul className="hidden md:flex items-center gap-1 mr-2">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="px-3.5 py-2 rounded-full text-[0.95rem] font-medium text-body no-underline hover:text-ink hover:bg-cream transition-colors">
+                <a href={l.href} className="px-3.5 py-2 rounded-lg text-[0.95rem] font-medium text-body no-underline hover:text-ink hover:bg-cream transition-colors">
                   {l.label}
                 </a>
               </li>
             ))}
           </ul>
+          <button
+            type="button"
+            onClick={openPalette}
+            aria-label="Open command palette"
+            className="hidden md:inline-flex items-center gap-1.5 h-9 px-2.5 mr-1 rounded-lg border border-line text-hint hover:text-ink hover:border-line-strong font-mono text-[0.74rem] cursor-pointer transition-colors"
+          >
+            <kbd className="font-mono">{mac ? '⌘' : 'Ctrl'}</kbd>
+            <kbd className="font-mono">K</kbd>
+          </button>
           <button
             type="button"
             onClick={toggle}
@@ -91,7 +86,7 @@ export default function Nav() {
           <ul className="wrap py-3 flex flex-col">
             {[...links, { label: 'Contact', href: '#contact' }].map((l) => (
               <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)} className="block py-3 text-lg font-head font-medium text-ink no-underline border-b border-line last:border-0">
+                <a href={l.href} onClick={() => setOpen(false)} className="block py-3 text-lg font-head text-ink no-underline border-b border-line last:border-0">
                   {l.label}
                 </a>
               </li>

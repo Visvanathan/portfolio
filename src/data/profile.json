@@ -1,31 +1,44 @@
 {
   "name": "Visvanathan D",
-  "role": "Founder, Branzia",
+  "role": "Laravel developer · Founder of Branzia",
   "location": "Pondicherry, India",
-  "email": "info@branzia.app",
-  "branziaWhatsapp": { "number": "917358720104", "display": "+91 73587 20104" },
-  "chat": {
-    "title": "Branzia",
-    "subtitle": "Talk directly with the founder",
-    "greeting": "👋 Hi, you've reached Branzia on WhatsApp. How can I help?",
-    "placeholder": "Type your message...",
-    "quickReplies": [
-      { "label": "I have a project in mind", "message": "Hi Branzia, I saw Visvanathan's website and I have a project I'd like to discuss." },
-      { "label": "I'd like to know what Branzia does", "message": "Hi Branzia, I saw Visvanathan's website and I'd like to know more about what Branzia can build for my business." },
-      { "label": "Just saying hello", "message": "Hi Visvanathan, I came across your website and wanted to say hello." }
-    ]
-  },
+  "email": "visvanathan.tech@gmail.com",
   "branziaUrl": "https://www.branzia.app/",
   "branziaContactUrl": "https://www.branzia.app/contact/",
   "social": [
-    { "label": "LinkedIn", "icon": "linkedin", "url": "https://www.linkedin.com/in/visvanathan-d/" },
-    { "label": "GitHub", "icon": "github", "url": "https://github.com/Visvanathan" },
-    { "label": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/visvanathan.founder/" }
+    {
+      "label": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/visvanathan-d/"
+    },
+    {
+      "label": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/Visvanathan"
+    },
+    {
+      "label": "Instagram",
+      "icon": "instagram",
+      "url": "https://www.instagram.com/visvanathan.founder/"
+    }
   ],
   "stats": [
-    { "value": "14+", "label": "years building for the web" },
-    { "value": "10", "label": "years remote with US teams" },
-    { "value": "10", "label": "projects in this portfolio" },
-    { "value": "1", "label": "company founded: Branzia" }
+    {
+      "value": "14+",
+      "label": "years building for the web"
+    },
+    {
+      "value": "12",
+      "label": "years remote with US companies"
+    },
+    {
+      "value": "10",
+      "label": "projects in this portfolio",
+      "count": "work"
+    },
+    {
+      "value": "1",
+      "label": "company founded: Branzia"
+    }
   ]
 }

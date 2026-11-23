@@ -4,7 +4,7 @@
 // - Built files (/assets/, hashed): cache first, they never change.
 // - Fonts, images, icons and card covers: served from cache, refreshed in the background.
 // Bump VERSION to drop everything cached by an older version.
-const VERSION = 'v2';
+const VERSION = 'v3';
 const CACHE = `vd-${VERSION}`;
 const OFFLINE = '/offline.html';
 

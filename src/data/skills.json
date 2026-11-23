@@ -1,9 +1,11 @@
 [
-  {"group": "Backend", "items": ["PHP", "Laravel", "Filament", "Livewire", "REST APIs", "Queues & jobs"]},
-  {"group": "Frontend", "items": ["Tailwind CSS", "Alpine.js", "Blade", "JavaScript", "React", "React Native", "TypeScript"]},
-  {"group": "Data", "items": ["PostgreSQL", "MySQL", "MongoDB", "Multi-tenancy"]},
+  {"group": "Backend", "items": ["PHP", "Laravel", "FilamentPHP", "Livewire", "REST APIs", "Queues & jobs"]},
+  {"group": "Frontend", "items": ["Tailwind CSS", "Alpine.js", "Blade", "JavaScript", "React", "TypeScript"]},
+  {"group": "Mobile", "items": ["React Native", "Android", "iOS", "Google Play"]},
+  {"group": "Architecture", "items": ["Monoliths", "Microservices", "API-first backends", "Multi-tenancy"]},
+  {"group": "Data", "items": ["PostgreSQL", "MySQL", "MongoDB"]},
+  {"group": "Integrations", "items": ["Stripe", "Razorpay", "Authorize.Net", "Shiprocket", "Firebase", "WhatsApp & Meta APIs", "ActiveCampaign"]},
   {"group": "Commerce & CMS", "items": ["WooCommerce", "Magento 2", "WordPress"]},
   {"group": "Testing", "items": ["Pest", "PHPUnit", "Postman"]},
-  {"group": "Integrations", "items": ["Stripe", "Razorpay", "Authorize.Net", "Shiprocket", "Firebase", "WhatsApp & Meta APIs", "ActiveCampaign"]},
   {"group": "Infrastructure", "items": ["AWS (RDS, SES)", "Cloudflare", "Docker", "Nginx", "Git"]}
 ]

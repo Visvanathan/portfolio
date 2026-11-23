@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page not found · Visvanathan D</title>
-    <meta name="description" content="This page doesn't exist. Visit the home page to see Visvanathan D's work and Branzia." />
+    <meta name="description" content="This page doesn't exist. Visit the home page to see Visvanathan D's work." />
     <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#2E5A55" />
-    <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
-    <link rel="preload" href="/fonts/sora.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#1d1a16" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=3" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/src/styles/index.css" />
     <script>
       (function () {
@@ -26,25 +26,20 @@
   <body class="min-h-dvh flex flex-col">
     <header class="wrap flex items-center justify-between h-[72px]">
       <a href="/" class="flex items-center gap-3 no-underline text-ink">
-        <svg class="size-9 shrink-0" viewBox="5.5 6 52 52" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M38 14 C60 14 61 50 24 50" class="stroke-accent"/><path d="M10 14 L24 50 L38 14" class="stroke-teal-deep"/></svg>
+        <svg class="size-9 shrink-0" viewBox="5.5 6 52 52" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M38 14 C60 14 61 50 24 50" class="stroke-brand"/><path d="M10 14 L24 50 L38 14" class="stroke-ink"/></svg>
         <span class="flex flex-col leading-tight">
-          <span class="font-head font-semibold text-[0.98rem]">Visvanathan D</span>
-          <span class="text-[0.78rem] text-hint">Founder, Branzia</span>
+          <span class="font-head font-medium text-[1.05rem]">Visvanathan D</span>
+          <span class="font-mono text-[0.72rem] text-hint">developer · founder</span>
         </span>
       </a>
       <a href="/#contact" class="btn btn-ghost !min-h-10.5 !px-5 text-[0.93rem] hidden sm:inline-flex">Get in touch</a>
     </header>
 
     <main class="relative flex-1 grid place-items-center overflow-hidden py-16">
-      <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
-        <div class="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-mint/25 blur-[120px] dark:bg-mint/10"></div>
-        <div class="absolute bottom-0 -left-48 w-[440px] h-[440px] rounded-full bg-rose/30 blur-[120px] dark:bg-rose/5"></div>
-        <div class="absolute inset-0 grain opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_65%)]"></div>
-      </div>
 
       <div class="wrap grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
         <div>
-          <p class="eyebrow animate-enter">Error 404</p>
+          <p class="eyebrow animate-enter">error 404</p>
           <h1 class="animate-enter [--i:1]">This page doesn't exist.</h1>
           <p class="lede animate-enter [--i:2]">
             The link may be broken, or the page may have moved. Everything on this site lives on one page, so the home page is the best place to start.
@@ -53,40 +48,34 @@
             <a href="/" class="btn btn-primary">Go to the home page</a>
             <a href="/#work" class="btn btn-ghost">See my work</a>
           </div>
-          <p class="animate-enter [--i:4] mt-8 text-[0.95rem]">
-            Looking for Branzia's services?
-            <a href="https://www.branzia.app/" target="_blank" rel="noopener" class="font-semibold text-teal hover:text-teal-deep">Visit branzia.app →</a>
-          </p>
         </div>
 
-        <!-- The same browser frame used for project cards, showing the address that failed. -->
-        <div class="animate-enter [--i:2] animate-float mx-auto w-full max-w-[460px]" aria-hidden="true">
-          <div class="card p-3">
-            <div class="rounded-[16px] overflow-hidden border border-line bg-cream">
-              <div class="flex items-center gap-1.5 px-3.5 h-8 border-b border-line bg-card">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-sage"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-mint"></span>
-                <span id="path" class="ml-3 truncate text-[0.72rem] text-hint">founder.branzia.app/missing-page</span>
-              </div>
-              <div class="aspect-[16/11] grid place-items-center text-center px-6">
-                <div>
-                  <p class="font-head font-semibold text-teal leading-none tracking-tight text-[clamp(4.5rem,12vw,7.5rem)]">404</p>
-                  <p class="mt-3 text-hint text-[0.92rem]">Nothing to see at this address</p>
-                </div>
-              </div>
+        <!-- A terminal trying to open the address that failed. #path is filled in by the script below. -->
+        <div class="animate-enter [--i:2] mx-auto w-full max-w-[480px]" aria-hidden="true">
+          <div class="rounded-[12px] overflow-hidden border border-black/40 bg-[#171411] text-[#e9e3d9] shadow-lift">
+            <div class="flex items-center gap-1.5 px-3.5 h-8 border-b border-white/10 bg-white/[0.03]">
+              <span class="w-2.5 h-2.5 rounded-full bg-white/15"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-white/15"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-white/15"></span>
+              <span class="ml-3 font-mono text-[0.7rem] text-white/45">~/visvanathan — zsh</span>
             </div>
+            <pre class="m-0 px-4 py-4 overflow-x-auto font-mono text-[0.8rem] leading-[1.8] [font-variant-ligatures:none]"><span class="text-[#e8875f]">$</span> cd <span id="path">/missing-page</span>
+<span class="text-[#e8875f]">cd:</span> no such file or directory
+<span class="text-[#e8875f]">$</span> ls /
+<span class="text-[#8fbcd4]">story/  work/  experience/  filament/  now/  contact/</span>
+<span class="text-[#e8875f]">$</span> cd ~ <span class="text-white/40"># the home page</span>
+<span class="text-[#e8875f]">$</span> <span class="inline-block w-[0.55em] h-[1.1em] align-[-0.2em] bg-[#e9e3d9]/80 animate-blink"></span></pre>
           </div>
         </div>
       </div>
     </main>
 
     <footer class="border-t border-line">
-      <div class="wrap py-6 text-[0.88rem] text-hint">© Visvanathan D. Founder of Branzia.</div>
+      <div class="wrap py-6 text-[0.88rem] text-hint">© Visvanathan D · Pondicherry, India</div>
     </footer>
 
     <script>
-      document.getElementById('path').textContent = location.host + location.pathname;
+      document.getElementById('path').textContent = location.pathname;
     </script>
   </body>
 </html>

@@ -21,13 +21,17 @@ export default function Experience() {
           <p className="eyebrow">Experience</p>
           <h2>From agency developer to founder.</h2>
           <p className="lede">
-            Fourteen years of PHP, since March 2012, ten of them remote with a US software company, building HIPAA-compliant features, payments and booking systems.
+            PHP since March 2012: agency work in Chennai, a decade with one US product company building HIPAA-compliant features, payments and bookings, and a part-time lead role alongside it.
           </p>
           <a href="https://www.linkedin.com/in/visvanathan-d/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost mt-8">
             Full profile on LinkedIn
           </a>
         </div>
 
+        <div>
+        <p className="reveal mb-8 font-mono text-[0.8rem] text-hint">
+          <span className="text-brand">$</span> git log --graph --oneline <span className="text-ink">career</span>
+        </p>
         <ol className="relative">
           {roles.map((r, i) => {
             const first = i === 0;
@@ -36,7 +40,7 @@ export default function Experience() {
             return (
               <li key={r.company} className="reveal relative pl-16 sm:pl-18 pb-12 last:pb-0" style={{ ['--i' as string]: i }}>
                 {/* Main line: starts at the newest role's node, ends at the first role's node */}
-                <span aria-hidden className={`${line} ${mainX} bg-teal/35 ${first ? 'top-[13px] bottom-0' : last ? 'top-0 h-[13px]' : 'top-0 bottom-0'}`} />
+                <span aria-hidden className={`${line} ${mainX} bg-brand/35 ${first ? 'top-[13px] bottom-0' : last ? 'top-0 h-[13px]' : 'top-0 bottom-0'}`} />
 
                 {/* Side branch: runs through every newer row, fading out at the top because it's still going */}
                 {branchAt > 0 && i < branchAt && (
@@ -55,13 +59,13 @@ export default function Experience() {
                 <span
                   aria-hidden
                   className={`absolute top-1.5 size-3.5 rounded-full border-2 ${onBranch ? 'left-[29px] border-hint bg-paper' : 'left-[5px] border-paper'} ${
-                    onBranch ? '' : r.current ? 'bg-accent animate-pulse-dot' : 'bg-teal'
+                    onBranch ? '' : r.current ? 'bg-accent animate-pulse-dot' : 'bg-brand'
                   }`}
                 />
 
-                <p className="text-[0.85rem] font-medium text-hint">{r.date}</p>
+                <p className="font-mono text-[0.78rem] text-hint">{r.date}</p>
                 <h3 className="mt-1.5 !text-[1.3rem]">
-                  {r.title} <span className="text-teal">· {r.company}</span>
+                  {r.title} <span className="italic text-brand">· {r.company}</span>
                 </h3>
                 <p className="text-[0.9rem] text-hint mt-0.5">{r.place}</p>
                 <p className="mt-3 max-w-[38em]">{r.details}</p>
@@ -69,6 +73,7 @@ export default function Experience() {
             );
           })}
         </ol>
+        </div>
       </div>
     </section>
   );
