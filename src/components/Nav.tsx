@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
+import FounderMark from './FounderMark';
 
 const links = [
   { label: 'Story', href: '#story' },
@@ -45,7 +46,7 @@ export default function Nav() {
     >
       <nav className="wrap flex items-center justify-between h-[72px]" aria-label="Main">
         <a href="#top" className="flex items-center gap-3 no-underline text-ink" onClick={() => setOpen(false)}>
-          <span className="grid place-items-center w-10 h-10 rounded-full bg-teal text-paper font-brand text-lg leading-none">V</span>
+          <FounderMark className="size-9 shrink-0" />
           <span className="flex flex-col leading-tight">
             <span className="font-head font-semibold text-[0.98rem]">Visvanathan D</span>
             <span className="text-[0.78rem] text-hint">Founder, Branzia</span>

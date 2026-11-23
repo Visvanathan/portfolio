@@ -1,5 +1,6 @@
 import { FiArrowUpRight, FiBell, FiCode, FiLink, FiMonitor, FiShoppingBag, FiSmartphone, FiZap } from 'react-icons/fi';
 import profile from '../data/profile.json';
+import { BranziaLogo } from './BranziaLogo';
 
 // Mirrors the seven services on branzia.app (Landing/data/home.json). Keep names and order in sync;
 // `page` is the service page's address on branzia.app.
@@ -23,7 +24,7 @@ export default function Branzia() {
 
           <div className="relative grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16">
             <div className="reveal lg:sticky lg:top-28 self-start">
-              <img src="/img/branzia-logo.webp" alt="Branzia" className="h-12 w-auto rounded-2xl bg-white px-4 py-2.5 mb-8" />
+              <BranziaLogo className="block h-9 w-auto text-panel-ink mb-8" />
               <p className="eyebrow !text-mint">My company</p>
               <h2 className="!text-panel-ink">Branzia: software that does the busywork, so you can run the business.</h2>
               <p className="lede text-panel-ink/75">

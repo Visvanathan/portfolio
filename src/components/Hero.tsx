@@ -1,6 +1,7 @@
 import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi';
 import profile from '../data/profile.json';
 import { SocialIcon } from './icons';
+import { BranziaMark } from './BranziaLogo';
 
 export default function Hero() {
   return (
@@ -20,7 +21,9 @@ export default function Hero() {
             rel="noopener"
             className="animate-enter inline-flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 mb-7 rounded-full bg-card border border-line shadow-card no-underline text-[0.88rem] text-body hover:border-line-strong transition-colors"
           >
-            <img src="/img/branzia-logo.webp" alt="" className="h-7 w-auto rounded-full bg-white px-1.5 py-1" />
+            <span className="grid place-items-center size-7 rounded-full bg-accent-soft text-teal-deep">
+              <BranziaMark className="size-3.5" />
+            </span>
             <span>
               Founder of <strong className="text-ink font-semibold">Branzia</strong>
             </span>
