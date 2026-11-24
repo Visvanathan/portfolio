@@ -38,7 +38,7 @@ export default function Experience() {
           <p className="eyebrow">Experience</p>
           <h2>From agency developer to founder.</h2>
           <p className="lede">
-            PHP since March 2012: agency work in Chennai, a decade with one US product company building HIPAA-compliant features, payments and bookings, and a part-time lead role alongside it.
+            PHP since March 2012: agency work in Chennai, a decade with one US product company building HIPAA-compliant features, payments and bookings, a part-time lead role alongside it, and leading the Laravel team behind the Bestkaam job marketplace.
           </p>
           <a href="https://www.linkedin.com/in/visvanathan-d/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost mt-8">
             Full profile on LinkedIn
@@ -68,8 +68,9 @@ export default function Experience() {
                 {onBranch && (
                   <>
                     <span aria-hidden className={`${line} ${branchX} top-0 bottom-12 bg-hint/45`} />
-                    <svg aria-hidden className="absolute left-0 bottom-0 w-12 h-12 overflow-visible" viewBox="0 0 48 48" fill="none">
-                      <path d="M36 0 C36 30 12 22 12 48" className="stroke-hint/45" strokeWidth="2" />
+                    {/* Extends 13px into the next row so the curve lands on the centre of its node, the commit it forked from */}
+                    <svg aria-hidden className="absolute left-0 -bottom-[13px] w-12 h-[61px] overflow-visible" viewBox="0 0 48 61" fill="none">
+                      <path d="M36 0 C36 34 12 26 12 61" className="stroke-hint/45" strokeWidth="2" />
                     </svg>
                   </>
                 )}

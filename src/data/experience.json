@@ -8,6 +8,13 @@
     "current": true
   },
   {
+    "title": "Web Development Team Lead",
+    "company": "CloudNausor Technologies",
+    "place": "Puducherry, India · Remote",
+    "date": "Aug 2025 – Apr 2026 · 9 mos",
+    "details": "Led development of Bestkaam, an India-wide job marketplace, on Laravel, Livewire and FilamentPHP: job posting, candidate search, employer dashboards and role-based access for job seekers and employers. Tuned MySQL queries and caching for scale, shipped through UAT with GitHub Actions, and iterated on client feedback."
+  },
+  {
     "title": "Lead Software Engineer",
     "company": "Louder Design",
     "place": "North Richland Hills, US · Remote",
